@@ -1,0 +1,3690 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.3'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+
+  <!-- 页面元数据 -->
+  
+  <title>1.Python基础知识 - DataScience</title>
+  
+    <meta name="keywords" content="Python">
+  
+
+  
+    <meta name="description" content="Python的基础语法">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/heson525/fontawesome-pro@5.13.1/css/all.min.css">
+
+  
+  
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.2.0/styles/a11y-dark.css">
+
+    
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  <!-- 脚本懒加载函数 -->
+  <script>
+  function loadScript(src, cb) {
+    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    if (cb) script.onload = cb;
+    script.setAttribute('src', src);
+    HEAD.appendChild(script);
+  }
+  //https://github.com/filamentgroup/loadCSS
+  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
+  </script>
+  <script id="loadcss"></script>
+</head>
+
+<body>
+  <header class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://ds.ipyingshe.net:443/datascience/2025/05/05/a2data.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fal fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fal fa-search fa-fw fa-fw'></i>发现
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://learngitbranching.js.org/?demo=&amp;locale=zh_CN
+                  
+                  
+                  
+                    id="https:learngitbranchingjsorg?demo=&amp;locale=zh_CN"
+                  >
+                  <i class='fas fa-pen-alt fa-fw'></i>Git
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-palette fa-fw'></i>娱乐
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/mofang
+                  
+                  
+                  
+                    id="relaxmofang"
+                  >
+                  魔方
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/2048
+                  
+                  
+                  
+                    id="relax2048"
+                  >
+                  2048
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>社区
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/books/
+                  
+                  
+                  
+                    id="books"
+                  >
+                  <i class='fa fa-book fa-fw fa-fw'></i>悦读
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/movies/
+                  
+                  
+                  
+                    id="movies"
+                  >
+                  <i class='fas fa-play-circle fa-fw fa-fw'></i>电影
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              
+                <li>
+                  <a class="menuitem flat-box">
+                    <i class='fas fa-compact-disc fa-fw music'></i>音乐
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      volume='0.3'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5229739363'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                <li>
+              
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-comment-dots fa-fw fa-fw'></i>聆听
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/contact/
+                  
+                  
+                  
+                    id="contact"
+                  >
+                  <i class='fa fa-paper-plane fa-fw fa-fw'></i>留言
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/Creator-said/
+                  
+                  
+                  
+                    id="Creator-said"
+                  >
+                  <i class='fas fa-comment-dots fa-fw fa-fw'></i>话痨
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-history fa-fw fa-fw'></i>关于
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/love
+                  
+                  
+                  
+                    id="relaxlove"
+                  >
+                  <i class='fa-fw fa fa-heart fa-fw'></i>表白
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw fa-fw'></i>自述
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/home
+                  
+                  
+                  
+                    id="relaxhome"
+                  >
+                  <i class='fas fa-info-circle fa-fw fa-fw'></i>home
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  镜像
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirrors.163.com/
+                  
+                  
+                  
+                    id="http:mirrors163com"
+                  >
+                  网易
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirrors.sohu.com/ubuntu/indices/
+                  
+                  
+                  
+                    id="http:mirrorssohucomubuntuindices"
+                  >
+                  搜狐
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://mirrors.tuna.tsinghua.edu.cn/apache/
+                  
+                  
+                  
+                    id="https:mirrorstunatsinghuaeducnapache"
+                  >
+                  Apache
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  Centos
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://man.linuxde.net/download/CentOS
+                  
+                  
+                  
+                    id="http:manlinuxdenetdownloadCentOS"
+                  >
+                  国内
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.centos.org/download/
+                  
+                  
+                  
+                    id="https:wwwcentosorgdownload"
+                  >
+                  官方
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirror.lzu.edu.cn/
+                  
+                  
+                  
+                    id="http:mirrorlzueducn"
+                  >
+                  兰大
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  工具
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://encycolorpedia.cn/named
+                  
+                  
+                  
+                    id="https:encycolorpediacnnamed"
+                  >
+                  颜色码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.iconfont.cn/
+                  
+                  
+                  
+                    id="https:wwwiconfontcn"
+                  >
+                  图标库
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.sojson.com/dwz.html
+                  
+                  
+                  
+                    id="https:wwwsojsoncomdwzhtml"
+                  >
+                  短链接
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://cli.im/
+                  
+                  
+                  
+                    id="https:cliim"
+                  >
+                  二维码1.4.14
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://www.aigei.com/bgremover/
+                  
+                  
+                  
+                    id="http:wwwaigeicombgremover"
+                  >
+                  透明图
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  站点
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://a2data.github.io/
+                  
+                  
+                  
+                    id="http:a2datagithubio"
+                  >
+                  Github
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://sqlsq_admin.gitee.io/
+                  
+                  
+                  
+                    id="https:sqlsq_admingiteeio"
+                  >
+                  Gitee
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fal fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="想找些什么~" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fal fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fal fa-search fa-fw fa-fw'></i>发现
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://learngitbranching.js.org/?demo=&amp;locale=zh_CN
+                  
+                  
+                  
+                    id="https:learngitbranchingjsorg?demo=&amp;locale=zh_CN"
+                  >
+                  <i class='fas fa-pen-alt fa-fw'></i>Git
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-palette fa-fw'></i>娱乐
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/mofang
+                  
+                  
+                  
+                    id="relaxmofang"
+                  >
+                  魔方
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/2048
+                  
+                  
+                  
+                    id="relax2048"
+                  >
+                  2048
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>社区
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/books/
+                  
+                  
+                  
+                    id="books"
+                  >
+                  <i class='fa fa-book fa-fw fa-fw'></i>悦读
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/movies/
+                  
+                  
+                  
+                    id="movies"
+                  >
+                  <i class='fas fa-play-circle fa-fw fa-fw'></i>电影
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-comment-dots fa-fw fa-fw'></i>聆听
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/contact/
+                  
+                  
+                  
+                    id="contact"
+                  >
+                  <i class='fa fa-paper-plane fa-fw fa-fw'></i>留言
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/Creator-said/
+                  
+                  
+                  
+                    id="Creator-said"
+                  >
+                  <i class='fas fa-comment-dots fa-fw fa-fw'></i>话痨
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-history fa-fw fa-fw'></i>关于
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/love
+                  
+                  
+                  
+                    id="relaxlove"
+                  >
+                  <i class='fa-fw fa fa-heart fa-fw'></i>表白
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw fa-fw'></i>自述
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/home
+                  
+                  
+                  
+                    id="relaxhome"
+                  >
+                  <i class='fas fa-info-circle fa-fw fa-fw'></i>home
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  镜像
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirrors.163.com/
+                  
+                  
+                  
+                    id="http:mirrors163com"
+                  >
+                  网易
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirrors.sohu.com/ubuntu/indices/
+                  
+                  
+                  
+                    id="http:mirrorssohucomubuntuindices"
+                  >
+                  搜狐
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://mirrors.tuna.tsinghua.edu.cn/apache/
+                  
+                  
+                  
+                    id="https:mirrorstunatsinghuaeducnapache"
+                  >
+                  Apache
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  Centos
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://man.linuxde.net/download/CentOS
+                  
+                  
+                  
+                    id="http:manlinuxdenetdownloadCentOS"
+                  >
+                  国内
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.centos.org/download/
+                  
+                  
+                  
+                    id="https:wwwcentosorgdownload"
+                  >
+                  官方
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirror.lzu.edu.cn/
+                  
+                  
+                  
+                    id="http:mirrorlzueducn"
+                  >
+                  兰大
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  工具
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://encycolorpedia.cn/named
+                  
+                  
+                  
+                    id="https:encycolorpediacnnamed"
+                  >
+                  颜色码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.iconfont.cn/
+                  
+                  
+                  
+                    id="https:wwwiconfontcn"
+                  >
+                  图标库
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.sojson.com/dwz.html
+                  
+                  
+                  
+                    id="https:wwwsojsoncomdwzhtml"
+                  >
+                  短链接
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://cli.im/
+                  
+                  
+                  
+                    id="https:cliim"
+                  >
+                  二维码1.4.14
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://www.aigei.com/bgremover/
+                  
+                  
+                  
+                    id="http:wwwaigeicombgremover"
+                  >
+                  透明图
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  站点
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://a2data.github.io/
+                  
+                  
+                  
+                    id="http:a2datagithubio"
+                  >
+                  Github
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://sqlsq_admin.gitee.io/
+                  
+                  
+                  
+                    id="https:sqlsq_admingiteeio"
+                  >
+                  Gitee
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div class="l_body">
+    <div class="l_cover">
+  
+    
+    
+        <div class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://ds.ipyingshe.net/datascience/2025/05/05/bcac99047bac5.png"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">数据科学</p>
+    
+    
+      <p class="subtitle">Welcome To A2Data</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/categories/"
+              
+              
+              id="categories">
+              <i class='fal fa-folder-open fa-fw fa-fw'></i><p>内容大纲</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fal fa-archive fa-fw fa-fw'></i><p>文章归档</p>
+            </a>
+          
+            <a href="/tags/"
+              
+              
+              id="tags">
+              <i class='fal fa-fire fa-fw fa-fw fa-fw'></i><p>热门标签</p>
+            </a>
+          
+            <a href="/contact/"
+              
+              
+              id="contact">
+              <i class='fal fa-comments fa-fw fa-fw'></i><p>畅所欲言</p>
+            </a>
+          
+            <a href="/Creator-said/"
+              
+              
+              id="Creator-said">
+              <i class='fal fa-microphone-alt fa-fw fa-fw'></i><p>随便说说</p>
+            </a>
+          
+            <a href="/friends/"
+              
+              
+              id="friends">
+              <i class='fal fa-link fa-fw fa-fw'></i><p>我的朋友</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+  
+    <div class='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+          <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">1.Python基础知识</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path"></div> 
+  <div id="pjax-comment-placeholder"></div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "half") { // 半屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "full") { // 全屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+ 
+
+        
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        1.Python基础知识
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://ds.ipyingshe.net:443/datascience/2025/05/05/20250505024535864.png">
+    <p>JackFeng</p>
+  </a>
+</div>
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 5, 2019</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Python/">Python</a><span class="sep"></span><a class="category-link" href="/categories/Python/Python%E9%80%9F%E6%88%90/">Python速成</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>3.1k words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>11 min</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="1.Python基础知识" data-path="/posts/59977.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+<div class="new-meta-item comments-count">
+  
+  <a href="/posts/59977.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/posts/59977.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Python的基础语法</p>
+<a id="more"></a>
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/py_1.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/py_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Python基础"></p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><blockquote>
+<p>为什么那么多培训机构？那么多的程序员呢？</p>
+<p>很简单啊。 因为 <code>门槛低啊</code>。 ==.</p>
+<p>不信？来动手试试吧。</p>
+</blockquote>
+<h2 id="1、操作系统-科普一下"><a href="#1、操作系统-科普一下" class="headerlink" title="1、操作系统(科普一下)"></a>1、操作系统(科普一下)</h2><p><strong>目标</strong></p>
+<ul>
+<li>了解操作系统及应用</li>
+</ul>
+<blockquote>
+<p>操作系统接口示意图</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191205231734.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191205231734.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="正常流程"></p>
+<blockquote>
+<p>那么没有安装操作系统的计算机, 那就是<strong>裸机</strong> </p>
+</blockquote>
+<h2 id="2、Python优缺点"><a href="#2、Python优缺点" class="headerlink" title="2、Python优缺点"></a>2、Python优缺点</h2><ul>
+<li>时势造英雄  人生苦短，我用python </li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191205233547.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191205233547.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Windows 3.0"></p>
+<p><strong>Python可以做什么呢？</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206003910.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206003910.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Python"></p>
+<h2 id="3、Python的第一个程序"><a href="#3、Python的第一个程序" class="headerlink" title="3、Python的第一个程序"></a>3、Python的第一个程序</h2><blockquote>
+<p>上篇已经说过一些，但是竟然有人问我<code>如何创建！</code>！</p>
+<p>此处以  <em>jupyter</em> 为例吧。</p>
+<p>果真是炒鸡小白。</p>
+</blockquote>
+<p>1、运行服务，进入web页面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206003758.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206003758.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="jupyter"></p>
+<p>2、进入你的工作目录</p>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206004401.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206004401.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="具体相关操作如下"></p>
+<p>3、成功输出你的第一行代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191204224614.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191204224614.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Hello"></p>
+<h2 id="4、注释"><a href="#4、注释" class="headerlink" title="4、注释"></a>4、注释</h2><h3 id="4-1、注释引入"><a href="#4-1、注释引入" class="headerlink" title="4.1、注释引入"></a>4.1、注释引入</h3><h4 id="1、未使用注释"><a href="#1、未使用注释" class="headerlink" title="1、未使用注释"></a>1、未使用注释</h4><p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206004820.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206004820.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="未注释"></p>
+<h4 id="2、使用注释"><a href="#2、使用注释" class="headerlink" title="2、使用注释"></a>2、使用注释</h4><p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206005029.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206005029.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="注释"></p>
+<h4 id="3、注释的作用"><a href="#3、注释的作用" class="headerlink" title="3、注释的作用"></a>3、注释的作用</h4><blockquote>
+<p>通过用自己熟悉的语言，在程序中对某些代码进行标注说明，这就是注释的作用，能够大大增强程序的可读性 </p>
+</blockquote>
+<h3 id="4-2、注释分类"><a href="#4-2、注释分类" class="headerlink" title="4.2、注释分类"></a>4.2、注释分类</h3><h4 id="1、-lt-单行注释-gt"><a href="#1、-lt-单行注释-gt" class="headerlink" title="1、&lt;单行注释&gt;"></a>1、&lt;单行注释&gt;</h4><pre><code class="python"> # 我是注释，可以在里写一些功能说明之类的哦
+    print(&#39;hello world&#39;)</code></pre>
+<h4 id="2、-lt-多行注释-gt"><a href="#2、-lt-多行注释-gt" class="headerlink" title="2、&lt;多行注释&gt;"></a>2、&lt;多行注释&gt;</h4><p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206005951.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206005951.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="自行练习哦"></p>
+<h4 id="3、-lt-注意-gt"><a href="#3、-lt-注意-gt" class="headerlink" title="3、&lt;注意&gt;"></a>3、&lt;注意&gt;</h4><blockquote>
+<p> 在python的语法规范中推荐使用的方式： </p>
+<p>（早期版本，不写的话，``print(‘努力赚钱的小风’) `就会报错哦）</p>
+</blockquote>
+<pre><code class="python"># -*- coding:utf-8 -*-</code></pre>
+<h2 id="5、变量以及类型"><a href="#5、变量以及类型" class="headerlink" title="5、变量以及类型"></a>5、变量以及类型</h2><p><strong>目标</strong></p>
+<ul>
+<li>掌握变量的定义和修改</li>
+<li>了解变量有哪些类型和查看方式</li>
+</ul>
+<h3 id="5-1、-lt-变量的定义-gt"><a href="#5-1、-lt-变量的定义-gt" class="headerlink" title="5.1、&lt;变量的定义&gt;"></a>5.1、&lt;变量的定义&gt;</h3><blockquote>
+<p>A：简单来讲就是，在程序中，我们需要对2个数据进行求和，那么该怎么做呢？</p>
+<p>B：类比现实生活中，比如你去买早餐，一个鸡蛋，一个茄子包子等，你需要算你共花了多少钱。</p>
+<p><em>所以，对于Python而言，存储一个数据，就需要一个<code>变量</code></em></p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206075351.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206075351.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="您的早餐已送达"></p>
+<ul>
+<li>程序就是用来处理数据，而变量就是用来存储数据的。</li>
+</ul>
+<p><code>*思考：我们应该让变量占用多大空间，保存什么样的数据？*</code></p>
+<h3 id="5-2、-lt-变量的类型-gt"><a href="#5-2、-lt-变量的类型-gt" class="headerlink" title="5.2、&lt;变量的类型&gt;"></a>5.2、&lt;变量的类型&gt;</h3><p>生活中类型的例子(拿车来举例吧)：</p>
+<blockquote>
+<p>挖掘机、轿车、跑车、公交车</p>
+<p>（类型，大小，价格都不同）</p>
+</blockquote>
+<p>程序中：</p>
+<p><strong>充分利用空间，有效管理内存</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206080650.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206080650.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="类型分类图"></p>
+<p>那么问题来了，如何知道一个变量的类型呢？</p>
+<ul>
+<li>Python中，只要定义了变量，且它有数据，那么它的类型就确定了。不用去说明它的类型，系统会自动辨别。</li>
+<li>type(变量名称)—- 查看变量类型</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206081804.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206081804.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="比较"></p>
+<h2 id="6、标示符和关键字"><a href="#6、标示符和关键字" class="headerlink" title="6、标示符和关键字"></a>6、标示符和关键字</h2><h3 id="6-1、标示符"><a href="#6-1、标示符" class="headerlink" title="6.1、标示符"></a>6.1、标示符</h3><blockquote>
+<p>开发人员在程序中自定义的一些符号和名称</p>
+<p>标示符是自己定义的,如变量名 、函数名等</p>
+</blockquote>
+<h3 id="6-2、标示符的规则"><a href="#6-2、标示符的规则" class="headerlink" title="6.2、标示符的规则"></a>6.2、标示符的规则</h3><blockquote>
+<p> 标示符由字母、下划线和数字组成，且数字不能开头 </p>
+<p> 找一找:（如下，哪些是对的，哪些是错的？）</p>
+</blockquote>
+<pre><code class="python">fromNo12
+from#12
+my_Boolean
+my-Boolean
+Obj2
+2ndObj
+myInt
+test1
+Mike2jack
+My_tExt
+_test
+test!32
+haha(da)tt
+int
+jack_rose
+jack&amp;rose
+GUI
+G.U.I
+a2data</code></pre>
+<p> <strong>python中的标识符是区分大小写的</strong></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206082419.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206082419.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="不相等的"></p>
+<h3 id="6-3、命名规则"><a href="#6-3、命名规则" class="headerlink" title="6.3、命名规则"></a>6.3、命名规则</h3><ul>
+<li><p>见名知意 </p>
+</li>
+<li><p>驼峰命名 </p>
+</li>
+<li><p>下划线链接</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206083051.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206083051.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="驼峰命名"></p>
+<h3 id="6-4、关键字"><a href="#6-4、关键字" class="headerlink" title="6.4、关键字"></a>6.4、关键字</h3><blockquote>
+<p>python一些具有特殊功能的标示符，这就是所谓的关键字 </p>
+<p>关键字，是python已经使用的了，所以不允许开发者自己定义和关键字相同的名字的标示符 </p>
+</blockquote>
+<p><em>查看关键字</em></p>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206083430.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206083430.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="关键字"></p>
+<h2 id="7、输出"><a href="#7、输出" class="headerlink" title="7、输出"></a>7、输出</h2><h3 id="7-1、普通输出"><a href="#7-1、普通输出" class="headerlink" title="7.1、普通输出"></a>7.1、普通输出</h3><pre><code class="python"># 打印提示
+print(&quot;hello world&quot;)</code></pre>
+<h3 id="7-1、格式化输出"><a href="#7-1、格式化输出" class="headerlink" title="7.1、格式化输出"></a>7.1、格式化输出</h3><h4 id="7-1-1、格式化的目的"><a href="#7-1-1、格式化的目的" class="headerlink" title="7.1.1、格式化的目的"></a>7.1.1、格式化的目的</h4><pre><code class="python">print(&#39;小风今年10岁&#39;)
+print(&#39;小风今年18岁&#39;)
+print(&#39;小风今年20岁&#39;)
+
+# 思考，年龄多次使用，如何简化 -- 字符串可视化</code></pre>
+<h4 id="7-1-2、格式化"><a href="#7-1-2、格式化" class="headerlink" title="7.1.2、格式化"></a>7.1.2、格式化</h4><p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206084128.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206084128.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="格式化输出"></p>
+<h4 id="7-1-3、换行输出"><a href="#7-1-3、换行输出" class="headerlink" title="7.1.3、换行输出"></a>7.1.3、换行输出</h4><pre><code class="python">#在输出的时候，如果有\n那么，此时\n后的内容会在另外一行显示
+
+print(&quot;1234567890-------&quot;) # 会在一行显示
+
+print(&quot;1234567890\n-------&quot;) # 一行显示1234567890，另外一行显示-------</code></pre>
+<h4 id="7-1-4、Python2-3输出区别"><a href="#7-1-4、Python2-3输出区别" class="headerlink" title="7.1.4、Python2-3输出区别"></a>7.1.4、Python2-3输出区别</h4><blockquote>
+<p>Python3 使用 print 必须要以小括号包裹打印内容，比如 <code>print(&#39;hi&#39;)</code></p>
+<p>Python2 既可以使用带小括号的方式，也可以使用一个空格来分隔打印内容，比如 <code>print &#39;hi&#39;</code></p>
+<p><strong>现在都是以python3为主</strong></p>
+</blockquote>
+<h4 id="7-1-5、动手试试吧"><a href="#7-1-5、动手试试吧" class="headerlink" title="7.1.5、动手试试吧"></a>7.1.5、动手试试吧</h4><blockquote>
+<p>编码完成一下名片的显示：</p>
+</blockquote>
+<pre><code class="python">==================================
+姓名: 努力赚钱的小风    
+QQ:xxxxxxx
+手机号:185xxxxxx
+公司地址:北京市xxxx
+==================================
+
+#思考，如何格式化输出？换行？</code></pre>
+<h2 id="8、输入"><a href="#8、输入" class="headerlink" title="8、输入"></a>8、输入</h2><blockquote>
+<p>这里简单说一下，Python2中的输入是 raw_input()函数 </p>
+<p>而在Python3中只有input()</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206084931.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191206084931.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="input输入"></p>
+<h2 id="9、运算符"><a href="#9、运算符" class="headerlink" title="9、运算符"></a>9、运算符</h2><ul>
+<li>算术运算符<ul>
+<li>运算优先级</li>
+</ul>
+</li>
+<li>赋值运算符</li>
+<li>复合赋值运算符</li>
+</ul>
+<h3 id="9-1、算术运算符"><a href="#9-1、算术运算符" class="headerlink" title="9.1、算术运算符"></a>9.1、算术运算符</h3><p>下面以a=10 ,b=20为例进行计算</p>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+</td>
+<td align="center">加</td>
+<td>两个对象相加 a + b 输出结果 30</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="center">减</td>
+<td>得到负数或是一个数减去另一个数 a - b 输出结果 -10</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td align="center">乘</td>
+<td>两个数相乘或是返回一个被重复若干次的字符串 a * b 输出结果 200</td>
+</tr>
+<tr>
+<td align="left">/</td>
+<td align="center">除</td>
+<td>x除以y b / a 输出结果 2</td>
+</tr>
+<tr>
+<td align="left">%</td>
+<td align="center">取余</td>
+<td>返回除法的余数 b % a 输出结果 0</td>
+</tr>
+<tr>
+<td align="left">**</td>
+<td align="center">幂</td>
+<td>返回x的y次幂 a**b 为10的20次方， 输出结果 100000000000000000000</td>
+</tr>
+<tr>
+<td align="left">//</td>
+<td align="center">取整除</td>
+<td>返回商的整数部分 9//2 输出结果 4 , 9.0//2.0 输出结果 4.0</td>
+</tr>
+</tbody></table>
+<pre><code class="python">&gt;&gt;&gt; 9 / 2.0
+4.5
+&gt;&gt;&gt; 9 // 2.0
+4.0
+&gt;&gt;&gt; 1 + 2*3
+7
+&gt;&gt;&gt; (1+2) * 3
+9</code></pre>
+<h3 id="9-2、赋值运算符"><a href="#9-2、赋值运算符" class="headerlink" title="9.2、赋值运算符"></a>9.2、赋值运算符</h3><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">=</td>
+<td align="center">赋值运算符</td>
+<td>把=号右边的结果给左边的变量 num=1+2*3 结果num的值为7</td>
+</tr>
+</tbody></table>
+<pre><code class="python">&gt;&gt;&gt; a, b = 1, 2
+&gt;&gt;&gt; a
+1
+&gt;&gt;&gt; b
+2</code></pre>
+<h3 id="9-3、复合赋值运算符"><a href="#9-3、复合赋值运算符" class="headerlink" title="9.3、复合赋值运算符"></a>9.3、复合赋值运算符</h3><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+=</td>
+<td align="center">加法赋值运算符</td>
+<td>c += a 等效于 c = c + a</td>
+</tr>
+<tr>
+<td align="left">-=</td>
+<td align="center">减法赋值运算符</td>
+<td>c -= a 等效于 c = c - a</td>
+</tr>
+<tr>
+<td align="left">*=</td>
+<td align="center">乘法赋值运算符</td>
+<td>c *= a 等效于 c = c * a</td>
+</tr>
+<tr>
+<td align="left">/=</td>
+<td align="center">除法赋值运算符</td>
+<td>c /= a 等效于 c = c / a</td>
+</tr>
+<tr>
+<td align="left">%=</td>
+<td align="center">取模赋值运算符</td>
+<td>c %= a 等效于 c = c % a</td>
+</tr>
+<tr>
+<td align="left">**=</td>
+<td align="center">幂赋值运算符</td>
+<td>c ** = a 等效于 c = c ** a</td>
+</tr>
+<tr>
+<td align="left">//=</td>
+<td align="center">取整除赋值运算符</td>
+<td>c //= a 等效于 c = c // a</td>
+</tr>
+</tbody></table>
+<h2 id="10、数据类型转化"><a href="#10、数据类型转化" class="headerlink" title="10、数据类型转化"></a>10、数据类型转化</h2><ul>
+<li>了解类型转换的作用</li>
+<li>掌握常用的类型转换</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">int(x [,base ])</td>
+<td align="center">将x转换为一个整数</td>
+</tr>
+<tr>
+<td align="center">long(x [,base ])</td>
+<td align="center">将x转换为一个长整数</td>
+</tr>
+<tr>
+<td align="center">float(x )</td>
+<td align="center">将x转换到一个浮点数</td>
+</tr>
+<tr>
+<td align="center">complex(real [,imag ])</td>
+<td align="center">创建一个复数</td>
+</tr>
+<tr>
+<td align="center">str(x )</td>
+<td align="center">将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td align="center">repr(x )</td>
+<td align="center">将对象 x 转换为表达式字符串</td>
+</tr>
+<tr>
+<td align="center">eval(str )</td>
+<td align="center">用来计算在字符串中的有效Python表达式,并返回一个对象</td>
+</tr>
+<tr>
+<td align="center">tuple(s )</td>
+<td align="center">将序列 s 转换为一个元组</td>
+</tr>
+<tr>
+<td align="center">list(s )</td>
+<td align="center">将序列 s 转换为一个列表</td>
+</tr>
+<tr>
+<td align="center">chr(x )</td>
+<td align="center">将一个整数转换为一个字符</td>
+</tr>
+<tr>
+<td align="center">unichr(x )</td>
+<td align="center">将一个整数转换为Unicode字符</td>
+</tr>
+<tr>
+<td align="center">ord(x )</td>
+<td align="center">将一个字符转换为它的整数值</td>
+</tr>
+<tr>
+<td align="center">hex(x )</td>
+<td align="center">将一个整数转换为一个十六进制字符串</td>
+</tr>
+<tr>
+<td align="center">oct(x )</td>
+<td align="center">将一个整数转换为一个八进制字符串</td>
+</tr>
+</tbody></table>
+<p><strong>举例</strong></p>
+<pre><code class="python">a = &#39;100&#39; # 此时a的类型是一个字符串，里面存放了100这3个字符
+b = int(a) # 此时b的类型是整型，里面存放的是数字100
+
+print(&quot;a=%d&quot;%b)</code></pre>
+<h2 id="11、判断语句介绍"><a href="#11、判断语句介绍" class="headerlink" title="11、判断语句介绍"></a>11、判断语句介绍</h2><blockquote>
+<p>直接拿一个例子来说明吧。</p>
+<p>&lt;重要日期判断案例&gt;</p>
+</blockquote>
+<pre><code class="python">    if 今天是周六或者周日:
+        约妹子
+
+    if 今天是情人节:
+        买玫瑰
+
+    if 今天发工资:
+
+        先还信用卡的钱
+
+        if 有剩余:
+
+            又可以happy了，O(∩_∩)O哈哈~
+
+        else:
+
+            噢，no。。。还的等30天</code></pre>
+<p>小总结：</p>
+<ul>
+<li>如果某些条件满足，才能做某件事情，而不满足时不允许做，这就是所谓的判断</li>
+<li>不仅生活中有，在软件开发中“判断”功能也经常会用到</li>
+</ul>
+<h2 id="12、if语句"><a href="#12、if语句" class="headerlink" title="12、if语句"></a>12、if语句</h2><ul>
+<li>掌握 if 语句的语法格式</li>
+</ul>
+<h3 id="12-1、if判断语句介绍"><a href="#12-1、if判断语句介绍" class="headerlink" title="12.1、if判断语句介绍"></a>12.1、if判断语句介绍</h3><ul>
+<li>if语句是用来进行判断的，其使用格式如下：</li>
+</ul>
+<pre><code class="python">    if 要判断的条件:
+        条件成立时，要做的事情</code></pre>
+<ul>
+<li>demo1:</li>
+</ul>
+<pre><code class="python">    age = 30
+
+    print &quot;------if判断开始------&quot;
+
+    if age&gt;=18:
+        print &quot;我已经成年了&quot;
+
+    print &quot;------if判断结束------&quot;</code></pre>
+<ul>
+<li>运行结果:</li>
+</ul>
+<pre><code class="python">    ------if判断开始------
+    我已经成年了
+    ------if判断结束------</code></pre>
+<ul>
+<li>demo2:</li>
+</ul>
+<pre><code class="python">    age = 16
+
+    print &quot;------if判断开始------&quot;
+
+    if age&gt;=18:
+        print &quot;我已经成年了&quot;
+
+    print &quot;------if判断结束------&quot;</code></pre>
+<ul>
+<li>运行结果:</li>
+</ul>
+<pre><code class="python">    ------if判断开始------
+    ------if判断结束------</code></pre>
+<p>小总结：</p>
+<ul>
+<li>以上2个demo仅仅是age变量的值不一样，结果却不同；能够看得出if判断语句的作用：就是当满足一定条件时才会执行那块代码，否则就不执行那块代码</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>代码的缩进为一个tab键，或者4个空格</li>
+</ul>
+<h3 id="12-2、练一练"><a href="#12-2、练一练" class="headerlink" title="12.2、练一练"></a>12.2、练一练</h3><p>要求：从键盘获取自己的年龄，判断是否大于或者等于18岁，如果满足就输出“哥，已成年，网吧可以去了”</p>
+<blockquote>
+<ol>
+<li>使用input从键盘中获取数据，并且存入到一个变量中</li>
+<li>使用if语句，来判断 age&gt;=18是否成立</li>
+</ol>
+</blockquote>
+<h3 id="12-3、想一想"><a href="#12-3、想一想" class="headerlink" title="12.3、想一想"></a>12.3、想一想</h3><ul>
+<li>判断age大于或者等于18岁，使用的是 &gt;=，还有哪些呢？</li>
+</ul>
+<h2 id="13、比较、关系运算符"><a href="#13、比较、关系运算符" class="headerlink" title="13、比较、关系运算符"></a>13、比较、关系运算符</h2><h3 id="13-1、比较-即关系-运算符"><a href="#13-1、比较-即关系-运算符" class="headerlink" title="13.1、比较(即关系)运算符"></a>13.1、比较(即关系)运算符</h3><p>python中的比较运算符如下表</p>
+<table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">描述</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">==</td>
+<td align="left">检查两个操作数的值是否相等，如果是则条件变为真。</td>
+<td align="left">如a=3,b=3则（a == b) 为 true.</td>
+</tr>
+<tr>
+<td align="left">!=</td>
+<td align="left">检查两个操作数的值是否相等，如果值不相等，则条件变为真。</td>
+<td align="left">如a=1,b=3则(a != b) 为 true.</td>
+</tr>
+<tr>
+<td align="left">&lt;&gt;</td>
+<td align="left">检查两个操作数的值是否相等，如果值不相等，则条件变为真。</td>
+<td align="left">如a=1,b=3则(a &lt;&gt; b) 为 true。这个类似于 != 运算符</td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="left">检查左操作数的值是否大于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=7,b=3则(a &gt; b) 为 true.</td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="left">检查左操作数的值是否小于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=7,b=3则(a &lt; b) 为 false.</td>
+</tr>
+<tr>
+<td align="left">&gt;=</td>
+<td align="left">检查左操作数的值是否大于或等于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=3,b=3则(a &gt;= b) 为 true.</td>
+</tr>
+<tr>
+<td align="left">&lt;=</td>
+<td align="left">检查左操作数的值是否小于或等于右操作数的值，如果是，则条件成立。</td>
+<td align="left">如a=3,b=3则(a &lt;= b) 为 true.</td>
+</tr>
+</tbody></table>
+<h3 id="13-2、-逻辑运算符"><a href="#13-2、-逻辑运算符" class="headerlink" title="13.2、 逻辑运算符"></a>13.2、 逻辑运算符</h3><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">逻辑表达式</th>
+<th align="left">描述</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">and</td>
+<td align="left">x and y</td>
+<td align="left">布尔”与” - 如果 x 为 False，x and y 返回 False，否则它返回 y 的计算值。</td>
+<td align="left">(a and b) 返回 20。</td>
+</tr>
+<tr>
+<td align="left">or</td>
+<td align="left">x or y</td>
+<td align="left">布尔”或” - 如果 x 是 True，它返回 True，否则它返回 y 的计算值。</td>
+<td align="left">(a or b) 返回 10。</td>
+</tr>
+<tr>
+<td align="left">not</td>
+<td align="left">not x</td>
+<td align="left">布尔”非” - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。</td>
+<td align="left">not(a and b) 返回 False</td>
+</tr>
+</tbody></table>
+<h2 id="14、小风作业练习"><a href="#14、小风作业练习" class="headerlink" title="14、小风作业练习"></a>14、小风作业练习</h2><p><strong>必做题</strong></p>
+<blockquote>
+<ol>
+<li><p>说出变量名字，可以由哪些字符组成</p>
+</li>
+<li><p>写出变量命名时的规则</p>
+</li>
+<li><p>说出什么是驼峰法（大驼峰、小驼峰）</p>
+</li>
+<li><p>编写程序，完成以下要求：</p>
+<ul>
+<li>提示用户进行输入数据</li>
+<li>获取用户的数据数据（需要获取2个）</li>
+<li>对获取的两个数字进行求和运行，并输出相应的结果</li>
+</ul>
+</li>
+<li><p>编写程序，完成以下要求：</p>
+<ul>
+<li>提示用户进行输入数据</li>
+<li>获取用户的数据数据（需要获取2个）</li>
+<li>对获取的两个数字进行减法运行，并输出相应的结果</li>
+</ul>
+</li>
+<li><p>编写程序，完成以下信息的显示:</p>
+<pre><code class="Python">==================================
+=        欢迎进入到身份认证系统V1.0
+= 1. 登录
+= 2. 退出
+= 3. 认证
+= 4. 修改密码
+==================================</code></pre>
+</li>
+<li><p>编写程序，从键盘获取一个人的信息，然后按照下面格式显示</p>
+<pre><code class="python">==================================
+姓名: A2Data  
+QQ:xxxxxxx
+手机号:185xxxxxx
+公司地址:北京市xxxx
+==================================</code></pre>
+</li>
+<li><p>编写程序，从键盘获取用户名和密码，然后判断，如果正确就输出以下信息</p>
+</li>
+</ol>
+</blockquote>
+<pre><code class="python">    亲爱的xxx，欢迎登陆 A2Data学习管理系统</code></pre>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+        
+  <div class="related_posts">
+    <section class='header'>
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
+    </section>
+    <section class='body'>
+      <div class="vlts-rps"><a class="item" href="/posts/80bb221f.html" title="Day11.封装" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg" /><span class="title">Day11.封装</span><span class="excerpt">Python 的封装学习。</span></a><a class="item" href="/posts/8b540f5a.html" title="Day10.高阶函数" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg" /><span class="title">Day10.高阶函数</span><span class="excerpt">高阶函数 定义 内置的有哪些</span></a><a class="item" href="/posts/b7cd6609.html" title="Day12.方法的重写和魔法方法" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg" /><span class="title">Day12.方法的重写和魔法方法</span><span class="excerpt">方法的重写和魔法方法</span></a><a class="item" href="/posts/8f19a96e.html" title="Day13.继承和多态" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg" /><span class="title">Day13.继承和多态</span><span class="excerpt">继承 和多态</span></a><a class="item" href="/posts/34771.html" title="10.Python面向对象(1)" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/20191223115817.png" /><span class="title">10.Python面向对象(1)</span><span class="excerpt">Python面向对象介绍上篇</span></a></div></section></div>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>版权声明：本网站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="/">数据科学</a></p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://www.a2data.cn/posts/59977.html>http://www.a2data.cn/posts/59977.html</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+        <div class='donate'>
+          <div class='imgs'>
+            
+              <img src='https://gitee.com/DataITems_admin/cdn/raw/master/alipay.jpg'>
+            
+              <img src='https://gitee.com/DataITems_admin/cdn/raw/master/wechat.png'>
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-11T16:14:26+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Sep 11, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>3.1k words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>11 min</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.a2data.cn/posts/59977.html&title=1.Python基础知识 - DataScience&summary=Python的基础语法"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.a2data.cn/posts/59977.html&title=1.Python基础知识 - DataScience&summary=Python的基础语法"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.a2data.cn/posts/59977.html&title=1.Python基础知识 - DataScience&summary=Python的基础语法"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACRUlEQVR42u3aQW7DMAwEwPz/0+29QGBxSQcNPboJSCyOToS4r5+Hrhc4ODg4OPgi+Ctcf/9/eeCb36XnxfWCg4ODg4MvhB83ABeFnIKvvne6L9cLDg4ODg6+GJ42LNVG4qrQ04us1gsODg4ODg5+3sCkjUa1oQEHBwcHBwe/v4FJBwHg4ODg4ODg8wOFU3i1AeoGEcDBwcHBwZ8Enwr4fWo/FvADBwcHBwf/Ynh3TT34p0GCcr3g4ODg4OCL4OnDQLfRqAb70gBBPEkBBwcHBwf/AvjVAdVCqwOAU8jU98HBwcHBwTfDp6DdgGA3CPD2HHBwcHBw8IXwdnCuGPzrNjhxwwMODg4ODv5AeDrATwufblzAwcHBwcE3wquD++pB1QeLah3ViwAHBwcHB98E7xaaNkKng4Ru0B8cHBwcHHwzvPrhdGAwHeSLg4Pg4ODg4OCL4VOD/ulBw9iFgoODg4ODL4Lf9cCfPiCkF3R8IeDg4ODg4Ivgp4VXHw6qBaaDiHLjBA4ODg4OvgieFlRtdLoNUxokBAcHBwcHfwL89MC7LiT9XvkccHBwcHDwhfB0dQf87Yak2giBg4ODg4MvgncbhG7gr/sgUR58gIODg4ODL4SnDUUXPB0YuKwLHBwcHBx8MTwd0E8FCk7raQ8UwMHBwcHBweP9VLCgXC84ODg4ODh4DK0GCU73x/8DBwcHBwdfDE8Dd1MPGt3zPhYMAAcHBwcH/0fwqYBf9QKrg/204QEHBwcHB98If9oCBwcHBwdfsH4BN8HCfR9xYYMAAAAASUVORK5CYII=">
+          </div>
+        </div>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/posts/5010.html'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Python第一天作业答案</p>
+          <p class='content'>您好, 这里需要密码.如若不知,请联系小编。3a0b0ebb43c4620dd0164696d76712adda08d924b0619ffca817202e677196d0457eac00861...</p>
+        </a>
+      
+      
+        <a class='next' href='/posts/41382.html'>
+          <p class='title'>运营工具箱<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>掌握这些工具，你就是自媒体大咖
+
+
+
+126 种运营人必备工具微场景编辑器
+易企秀：http://www.eqxiu.com/main
+易企微：http://www.e7wei.com/
+兔展：...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+<section class="widget grid shadow desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class='name'>导航</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="grid navigation fixed">
+      
+        <a class="flat-box" title="/categories/" href="/categories/"
+          
+          
+          id="categories">
+          
+            <i class="fas fa-book fa-fw fa-fw" aria-hidden="true"></i>
+          
+          内容大纲
+        </a>
+      
+        <a class="flat-box" title="/archives/" href="/archives/"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a>
+      
+        <a class="flat-box" title="/tags/" href="/tags/"
+          
+          
+          id="tags">
+          
+            <i class="fas fa-fire fa-fw fa-fw" aria-hidden="true"></i>
+          
+          热门标签
+        </a>
+      
+        <a class="flat-box" title="/Creator-said/" href="/Creator-said/"
+          
+          
+          id="Creator-said">
+          
+            <i class="fas fa-comment-dots fa-fw fa-fw" aria-hidden="true"></i>
+          
+          主创说
+        </a>
+      
+        <a class="flat-box" title="/contact/" href="/contact/"
+          
+          
+          id="contact">
+          
+            <i class="fas fa-comments fa-fw fa-fw" aria-hidden="true"></i>
+          
+          留言板
+        </a>
+      
+        <a class="flat-box" title="/friends/" href="/friends/"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-users fa-fw fa-fw" aria-hidden="true"></i>
+          
+          友情链接
+        </a>
+      
+        <a class="flat-box" title="/" href="/"
+          
+          
+            target="_blank"
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a>
+      
+        <a class="flat-box" title="/tools/" href="/tools/"
+          
+          
+          id="tools">
+          
+            <i class="fas fa-info-circle fa-fw fa-fw" aria-hidden="true"></i>
+          
+          软件控
+        </a>
+      
+        <a class="flat-box" title="https://travellings.now.sh/" href="https://travellings.now.sh/"
+          
+            rel="noopener external nofollow noreferrer"
+          
+          
+            target="_blank"
+          
+          id="https:travellingsnowsh">
+          
+            <i class="fa fa-binoculars fa-fw" aria-hidden="true"></i>
+          
+          开往
+        </a>
+      
+    </div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%A7%91%E6%99%AE%E4%B8%80%E4%B8%8B"><span class="toc-text">1、操作系统(科普一下)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Python%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2、Python优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Python%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-text">3、Python的第一个程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%B3%A8%E9%87%8A"><span class="toc-text">4、注释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E3%80%81%E6%B3%A8%E9%87%8A%E5%BC%95%E5%85%A5"><span class="toc-text">4.1、注释引入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E6%9C%AA%E4%BD%BF%E7%94%A8%E6%B3%A8%E9%87%8A"><span class="toc-text">1、未使用注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8%E6%B3%A8%E9%87%8A"><span class="toc-text">2、使用注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E6%B3%A8%E9%87%8A%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">3、注释的作用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E3%80%81%E6%B3%A8%E9%87%8A%E5%88%86%E7%B1%BB"><span class="toc-text">4.2、注释分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81-lt-%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A-gt"><span class="toc-text">1、&lt;单行注释&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81-lt-%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A-gt"><span class="toc-text">2、&lt;多行注释&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81-lt-%E6%B3%A8%E6%84%8F-gt"><span class="toc-text">3、&lt;注意&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E5%8F%98%E9%87%8F%E4%BB%A5%E5%8F%8A%E7%B1%BB%E5%9E%8B"><span class="toc-text">5、变量以及类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1%E3%80%81-lt-%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89-gt"><span class="toc-text">5.1、&lt;变量的定义&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2%E3%80%81-lt-%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B-gt"><span class="toc-text">5.2、&lt;变量的类型&gt;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E6%A0%87%E7%A4%BA%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">6、标示符和关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1%E3%80%81%E6%A0%87%E7%A4%BA%E7%AC%A6"><span class="toc-text">6.1、标示符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2%E3%80%81%E6%A0%87%E7%A4%BA%E7%AC%A6%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-text">6.2、标示符的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3%E3%80%81%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-text">6.3、命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">6.4、关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81%E8%BE%93%E5%87%BA"><span class="toc-text">7、输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1%E3%80%81%E6%99%AE%E9%80%9A%E8%BE%93%E5%87%BA"><span class="toc-text">7.1、普通输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1%E3%80%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA"><span class="toc-text">7.1、格式化输出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-1%E3%80%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-text">7.1.1、格式化的目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-2%E3%80%81%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">7.1.2、格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-3%E3%80%81%E6%8D%A2%E8%A1%8C%E8%BE%93%E5%87%BA"><span class="toc-text">7.1.3、换行输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-4%E3%80%81Python2-3%E8%BE%93%E5%87%BA%E5%8C%BA%E5%88%AB"><span class="toc-text">7.1.4、Python2-3输出区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-5%E3%80%81%E5%8A%A8%E6%89%8B%E8%AF%95%E8%AF%95%E5%90%A7"><span class="toc-text">7.1.5、动手试试吧</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81%E8%BE%93%E5%85%A5"><span class="toc-text">8、输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">9、运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1%E3%80%81%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">9.1、算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2%E3%80%81%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">9.2、赋值运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3%E3%80%81%E5%A4%8D%E5%90%88%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">9.3、复合赋值运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96"><span class="toc-text">10、数据类型转化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11%E3%80%81%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E4%BB%8B%E7%BB%8D"><span class="toc-text">11、判断语句介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12%E3%80%81if%E8%AF%AD%E5%8F%A5"><span class="toc-text">12、if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1%E3%80%81if%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E4%BB%8B%E7%BB%8D"><span class="toc-text">12.1、if判断语句介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2%E3%80%81%E7%BB%83%E4%B8%80%E7%BB%83"><span class="toc-text">12.2、练一练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-3%E3%80%81%E6%83%B3%E4%B8%80%E6%83%B3"><span class="toc-text">12.3、想一想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13%E3%80%81%E6%AF%94%E8%BE%83%E3%80%81%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">13、比较、关系运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#13-1%E3%80%81%E6%AF%94%E8%BE%83-%E5%8D%B3%E5%85%B3%E7%B3%BB-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">13.1、比较(即关系)运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-2%E3%80%81-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">13.2、 逻辑运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14%E3%80%81%E5%B0%8F%E9%A3%8E%E4%BD%9C%E4%B8%9A%E7%BB%83%E4%B9%A0"><span class="toc-text">14、小风作业练习</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+      </div>
+      
+    
+    <footer class="footer clearfix">
+        <br><br>
+        
+            
+                <br>
+                <div class="social-wrapper">
+                    
+                        
+                            <a href="https://github.com/A2Data"
+                               class="social fab fa-github flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                        
+                            <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=a2data@163.com"
+                               class="social fas fa-envelope-open flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                        
+                            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=66860619"
+                               class="social fab fa-qq flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                        
+                            <a href="https://gitee.com/DataITems_admin/cdn/raw/master/baeab3a662ef96c3403f558a0bb578c.jpg"
+                               class="social fab fa-weixin flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                        
+                            <a href="https://me.csdn.net/weixin_47093227"
+                               class="social fab fa-cuttlefish flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                </div>
+                <div>
+<!--                    <span id="timeDate"></span>-->
+                    <i class="fas fa-heartbeat" style="transform:scale(1.1);color:rgba(255,0,0,.9)"></i>
+                    <span id="times"></span>
+                    <i class="fas fa-heartbeat" style="transform:scale(1.1);color:rgba(255,0,0,.9)"></i>
+                    <script>
+                        var now = new Date();
+                        function createtime() {
+                            var grt= new Date("08/18/2018 00:00:00");  //在此处修改你的建站时间，格式：月/日/年 时:分:秒
+                            now.setTime(now.getTime()+250);
+                            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+                            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+                            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+                            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+                            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+                            // document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+                            document.getElementById("times").innerHTML = "本站已运行 "+dnum+" 天 "+ hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+                        }
+                        setInterval("createtime()",250);
+                    </script>
+                </div>
+                <div class="pure">
+                    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+                    <script>
+                        var getOSAndBrowser = function () {
+                            var os = navigator.platform;
+                            var userAgent = navigator.userAgent;
+                            var info = "";
+                            var tempArray = "";
+                            if (os.indexOf("Win") > -1) {
+                                if (userAgent.indexOf("Windows NT 5.0") > -1) {
+                                    info += "Win2000"
+                                } else if (userAgent.indexOf("Windows NT 5.1") > -1) {
+                                    info += "WinXP"
+                                } else if (userAgent.indexOf("Windows NT 5.2") > -1) {
+                                    info += "Win2003"
+                                }
+                                else if (userAgent.indexOf("Windows NT 6.0") > -1) {
+                                    info += "WindowsVista"
+                                } else if (userAgent.indexOf("Windows NT 6.1") > -1 || userAgent.indexOf("Windows 7") > -1) {
+                                    info += "Win7"
+                                } else if (userAgent.indexOf("Windows NT 6.2") > -1 || userAgent.indexOf("Windows 8") > -1) {
+                                    info += "Win8"
+                                }
+                                else if (userAgent.indexOf("Windows NT 6.3") > -1 || userAgent.indexOf("Windows 8.1") > -1) {
+                                    info += "Win8.1"
+                                } else if (userAgent.indexOf("Windows NT 10.0") > -1 || userAgent.indexOf("Windows 10") > -1) {
+                                    info += "Win10"
+                                } else {
+                                    info += "Other"
+                                }
+                            } else if (os.indexOf("Mac") > -1) {
+                                info += "Mac"
+                            } else if (os.indexOf("X11") > -1) {
+                                info += "Unix"
+                            } else if (os.indexOf("Linux") > -1) {
+                                info += "Linux"
+                            } else { info += "Other" } info += "/";
+                            var isOpera = userAgent.indexOf("Opera") > -1;
+                            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera;
+                            var isEdge = userAgent.toLowerCase().indexOf("edge") > -1 && !isIE;
+                            var isIE11 = (userAgent.toLowerCase().indexOf("trident") > -1 && userAgent.indexOf("rv") > -1);
+                            if (/[Ff]irefox(\/\d+\.\d+)/.test(userAgent)) {
+                                tempArray = /([Ff]irefox)\/(\d+\.\d+)/.exec(userAgent);
+                                info += tempArray[1] + tempArray[2]
+                            } else if (isIE) {
+                                var version = "";
+                                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                                reIE.test(userAgent);
+                                var fIEVersion = parseFloat(RegExp["$1"]);
+                                if (fIEVersion == 7) {
+                                    version = "IE7"
+                                } else if (fIEVersion == 8) {
+                                    version = "IE8"
+                                } else if (fIEVersion == 9) { version = "IE9" } else if (fIEVersion == 10) { version = "IE10" } else { version = "0" } info += version
+                            } else if (isEdge) { info += "Edge" } else if (isIE11) { info += "IE11" } else if (/[Cc]hrome\/\d+/.test(userAgent)) { tempArray = /([Cc]hrome)\/(\d+)/.exec(userAgent); info += tempArray[1] + tempArray[2] } else if (/[Vv]ersion\/\d+\.\d+\.\d+(\.\d)* *[Ss]afari/.test(userAgent)) { tempArray = /[Vv]ersion\/(\d+\.\d+\.\d+)(\.\d)* *([Ss]afari)/.exec(userAgent); info += tempArray[3] + tempArray[1] } else if (/[Oo]pera.+[Vv]ersion\/\d+\.\d+/.test(userAgent)) { tempArray = /([Oo]pera).+[Vv]ersion\/(\d+)\.\d+/.exec(userAgent); info += tempArray[1] + tempArray[2] } else { info += "unknown" } return info
+                        }; document.write("欢迎来自" + returnCitySN["cname"] + "的朋友"); document.write(",您的 IP 是:" + returnCitySN["cip"]); document.write(",您使用的是:" + getOSAndBrowser());
+                    </script>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动">
+                        <span class="badge-subject">Powered</span><span class="badge-value bg-blue">Hexo</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="http://beian.miit.gov.cn" target="_blank" title="[sqlsq.cn@备案]">
+                        <span class="badge-subject">京ICP</span><span class="github-badge .bg-lightgrey">备20010978号</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://github.com/" target="_blank" title="静态网页托管于 GitHub Pages 和 Gitee Pages">
+                        <span class="badge-subject">Hosted</span><span class="badge-value bg-brightgreen">GitHub & Gitee</span></a>
+                </div>
+                <br>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://www.foreverblog.cn/blog/1579.html" target="_blank" title="[A2Data@十年之约]">
+                        <span class="badge-subject">Forever Blog</span><span class="badge-value bg-lightgrey">十年之约</span></a>
+                </div>
+
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://www.a2data.cn/" target="_blank" title="DataScience提供内容创作">
+                        <span class="badge-subject">Copyright © 2018-2021</span><span class="badge-value bg-blueviolet">A2Data</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://www.jsdelivr.com/" target="_blank" title="jsDelivr 提供 CDN 加速服务">
+                        <span class="badge-subject">CDN</span><span class="badge-value bg-orange">jsDelivr</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站点采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可">
+                        <span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-lightgrey">BY-NC-SA 4.0</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://996.icu/" target="_blank" title="支持 996.ICU">
+                        <span class="badge-subject">Link</span><span class="badge-value bg-red">996.ICU</span></a>
+                </div>
+
+            
+        
+    </footer>
+
+
+<style>
+  .github-badge {
+    display:inline-block;
+    border-radius:4px;
+    text-shadow:none;
+    font-size:13px;
+    color:#fff;
+    line-height:15px;
+    background-color:#ABBAC3;
+    margin-bottom:5px;
+  }
+  .github-badge .badge-subject {
+    display:inline-block;
+    background-color:#4D4D4D;
+    padding:4px 4px 4px 6px;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+  }
+  .github-badge .badge-value {
+    display:inline-block;
+    padding:4px 6px 4px 4px;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
+  }
+  .github-badge .bg-brightgreen {
+    background-color:#4DC820 !important;
+  }
+  .github-badge .bg-orange {
+    background-color:#FFA500 !important;
+  }
+  .github-badge .bg-yellow {
+    background-color:#D8B024 !important;
+  }
+  .github-badge .bg-blueviolet {
+    background-color:#8833D7 !important;
+  }
+  .github-badge .bg-pink {
+    background-color:#F26BAE !important;
+  }
+  .github-badge .bg-red {
+    background-color:#e05d44 !important;
+  }
+  .github-badge .bg-blue {
+    background-color:#007EC6 !important;
+  }
+  .github-badge .bg-lightgrey {
+    background-color:#9F9F9F !important;
+  }
+  .github-badge .bg-grey, .github-badge .bg-gray {
+    background-color:#555 !important;
+  }
+  .github-badge .bg-lightgrey, .github-badge .bg-lightgray {
+    background-color:#9f9f9f !important;
+  }
+</style>
+
+      <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      // 背景层
+      var bgDiv = document.createElement("div");
+      $(bgDiv).addClass("bg");
+      if ($(this).attr('bg')) {
+        $(bgDiv).css('background', $(this).attr('bg'));
+      }
+      $(this).wrap(bgDiv); // 背景层
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if($(".md").find("img").not('.inline').not('a img').length+$(".article-entry").find("img").length==0)return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+      
+      
+      
+         onclick="menuCopy()"
+              
+      
+         id="menu-copy-text"
+      >
+        <i class='fas fa-copy fa-fw'></i> 复制选中内容
+      </a>
+    </li>
+  
+        
+      
+        
+          <li class='navigation'>
+            <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fas fa-arrow-left fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fas fa-arrow-right fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fas fa-redo fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' href='/'><i class='fas fa-home fa-fw'></i></a>
+          </li>
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://support.qq.com/products/176810/
+      
+      
+      
+      
+         id="https:supportqqcomproducts176810"
+              >
+        <i class='fa fa-question fa-fw'></i> 吐槽墙
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=/tools/
+      
+      
+      
+      
+         id="tools"
+              >
+        <i class='fa-fw fa fa-bars fa-fw fa-fw'></i> 软件控
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://gitee.com/DataITems_admin/cdn/raw/master/sys.png
+      
+      
+      
+      
+         id="https:giteecomDataITems_admincdnrawmastersyspng"
+              >
+        <i class='fa fa-fan fa-spin fa-fw'></i> 公众号
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=/about/
+      
+      
+      
+      
+         id="about"
+              >
+        <i class='fas fa-location-arrow fa-fw'></i> 如人饮水
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=/Creator-said/
+      
+      
+      
+      
+         id="Creator-said"
+              >
+        <i class='fa fa-globe fa-fw fa-fw'></i> 冷暖自知
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward' onclick='aplayerBackward()'><i class='fas fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle' onclick='aplayerToggle()'><i class='fas fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward' onclick='aplayerForward()'><i class='fas fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fas fa-volume-off fa-fw'></i>
+                  <i class='right fas fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey || $(window).width() <= 500) {
+        if (event.ctrlKey) return true;
+        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) return true;
+      }
+      setMenulocation();
+      setMenuCopy();
+      if (true == true) {
+        try {
+          checkAPlayer();
+          updateTitle();
+        } catch (error) {console.log(error);}
+      }
+      return false;
+    };
+    document.getElementById('rightmenu-wrapper').oncontextmenu  = function (event) {
+      event.stopPropagation();  // 阻止右键上的右键
+      return false;
+    }
+    document.querySelectorAll('img').forEach((item) => {  // IMG 放出菜单
+      item.oncontextmenu  = function (event) {
+        event.stopPropagation();
+        return true;
+      }
+    })
+    document.addEventListener("click", function (event) {
+      hideMenu();
+    });
+    function hideMenu(  ) {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function setMenulocation() {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var mouseClientX = event.clientX;
+      var mouseClientY = event.clientY;
+      var menuWidth = menuContent.offsetWidth == 0 ? 160 : menuContent.offsetWidth;
+      var menuHeight = menuContent.offsetHeight == 0 ? 340 : menuContent.offsetHeight;
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      var showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
+      var showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
+      mymenu.style.left = showLeft + "px";
+      mymenu.style.top = showTop + "px";
+      mymenu.style.display = 'block';
+    }
+    function setMenuCopy() {
+      if (window.getSelection().toString()) {
+        document.getElementById('menu-copy-text').style.display = 'block';
+      } else {
+        document.getElementById('menu-copy-text').style.display = 'none';
+      }
+    }
+    function menuCopy() {
+      document.execCommand("Copy");
+      $.message({title:'复制成功',message: window.getSelection().toString(),type:'success'});
+    }
+  </script>
+
+
+
+
+
+  
+<script src="/js/issues.js" aysc></script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            $.message({
+            title: '复制成功',
+            message: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+        });
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5229739363';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.3';
+  APlayerController.autoPlay = 'true';
+</script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+
+
+
+  
+<script src="/js/aplayer.js"></script>
+
+
+
+
+
+
+  <!--https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js-->
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "嗨,请不要吝啬你的想法！小技巧：在昵称位置输入QQ号就可以自动补全邮箱哦~";
+
+    let path = $.trim($('#pjax-comment-path').text());
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "i1I90mFU8urYjNXgiqPT05Jt-gzGzoHsz",
+      appKey: "GXgwCzMM0g2CnM8x0WCM7fPQ",
+      pageSize: '5',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  function newcomment() {
+
+    function queryLeanCloud(k) {
+      let root = this;
+      let len = arguments.length;
+      if (len == 1) {
+        let notExist = new AV.Query("Comment");
+        notExist.doesNotExist('rid');
+        let isEmpty = new AV.Query("Comment");
+        isEmpty.equalTo('rid', '');
+        let q = AV.Query.or(notExist, isEmpty);
+        if (k === '*') q.exists('url');
+        else q.equalTo('url', decodeURI(k));
+        q.addDescending('createdAt');
+        q.addDescending('insertedAt');
+        return q;
+      } else {
+        let ids = JSON.stringify(arguments[1]).replace(/(\[|\])/g, '');
+        let cql = `select * from ${root['config']['clazzName']} where rid in (${ids}) order by -createdAt,-createdAt`;
+        return AV.Query.doCloudQuery(cql)
+      }
+    }
+    var valine = new Valine({
+      el: '#valine_container_ba（因为主题已经有valine的这些参数了，这里随意填都行）',
+      app_id: 'i1I90mFU8urYjNXgiqPT05Jt-gzGzoHsz',
+      app_key: 'GXgwCzMM0g2CnM8x0WCM7fPQ',
+      placeholder: '',
+      serverURLs: 'https://i1i90mfu.lc-cn-n1-shared.com'
+    });
+
+    //判断博主，heson改为自己的昵称
+    function bozhu(e){
+      if (e == "Jack"){
+        nick = e + '[博主]'
+        return nick;
+      } else {
+        return e
+      }
+    }
+
+    //判断网址
+    function wangzhi(e){
+      http = e.slice(0,4)
+      https = e.slice(0,5)
+      if (http == "http" || https == "https" ){
+        return e
+      } else if (e == "" || e == null || e == undefined){
+        return e
+      } else {
+        e = 'http://'+ e
+        return e
+      }
+    }
+
+    //查询评论
+    valine.Q('*').limit(7).find().then(function (comments) {
+      var hotComments = $("#hot-comments");
+      for (var i = 0; i < comments.length; i++) {
+        if (i === 0) {
+          // console.log(comments[0]);
+          console.log("\n %c DataScience %c https://www.a2data.cn \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;"),
+          window.customElements && !window.customElements.get("meting-js") && (window.MetingJSElement = MetingJSElement,
+                  window.customElements.define("meting-js", MetingJSElement));
+
+        }
+        var nick = bozhu(comments[i]._serverData.nick);
+        var content = comments[i]._serverData.comment;
+        // var newcontent = content.substring(0, 50).replace(/<[^>]+>/g,"");
+        var newcontent = content.replace(/<[^>]+>/g,"").replace(/:.*?:/g,"[表情]").substring(0,50);
+        var url = comments[i]._serverData.url;
+        var link = wangzhi(comments[i]._serverData.link);
+        var updatedAt = timeago(comments[i].updatedAt);
+        var commentId = '#' + comments[i].id;
+        hotComments.append('<div class="card-comment-item"><div class="item-header-text"><a href="'+ link +'" target="_blank" rel="nofollow noopener noreferrer" class="newcomment" >' + nick + '</a>&nbsp;发表于' + updatedAt + '</div><div class="item-text"><a href="' + url + commentId +'"  rel="nofollow" style="color:#717171" class="comments-detail" >' + newcontent + '</a></div></div>');
+      }
+    });
+  };
+
+  $(function () {
+    pjax_valine();
+    newcomment();
+  });
+</script>
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="/js/search.js"></script>
+
+  
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+(function ($) {
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+})(jQuery);
+
+</script>
+
+
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'Fsrd5NtVW8ovmaynVJ18xHO6-gzGzoHsz',
+    app_key: 'QYc2X76ulK8THVLHwpJfvsrG',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://www.a2data.cn' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://www.a2data.cn' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://www.a2data.cn' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+<!-- more -->
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = ["/Creator-said/"];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+            newcomment();
+          }
+        
+        
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+
+      <!--聊天-->
+
+      <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="9e16adc4-63cc-4958-bf99-26d19bf0ede8";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+      <!--    title 变化-->
+      <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+          document.hidden?(document.title="ヽ(●-`Д´-)ノ嗨说你呢，别分心",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+      </script>
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

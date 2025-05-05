@@ -1,0 +1,3335 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.3'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+
+  <!-- 页面元数据 -->
+  
+  <title>Day2.数据可视化基本图像绘制 - DataScience</title>
+  
+    <meta name="keywords" content="数据可视化">
+  
+
+  
+    <meta name="description" content="数据可视化，基本图像的绘制。">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/heson525/fontawesome-pro@5.13.1/css/all.min.css">
+
+  
+  
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.2.0/styles/a11y-dark.css">
+
+    
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  <!-- 脚本懒加载函数 -->
+  <script>
+  function loadScript(src, cb) {
+    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    if (cb) script.onload = cb;
+    script.setAttribute('src', src);
+    HEAD.appendChild(script);
+  }
+  //https://github.com/filamentgroup/loadCSS
+  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
+  </script>
+  <script id="loadcss"></script>
+</head>
+
+<body>
+  <header class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://ds.ipyingshe.net:443/datascience/2025/05/05/a2data.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fal fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fal fa-search fa-fw fa-fw'></i>发现
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://learngitbranching.js.org/?demo=&amp;locale=zh_CN
+                  
+                  
+                  
+                    id="https:learngitbranchingjsorg?demo=&amp;locale=zh_CN"
+                  >
+                  <i class='fas fa-pen-alt fa-fw'></i>Git
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-palette fa-fw'></i>娱乐
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/mofang
+                  
+                  
+                  
+                    id="relaxmofang"
+                  >
+                  魔方
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/2048
+                  
+                  
+                  
+                    id="relax2048"
+                  >
+                  2048
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>社区
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/books/
+                  
+                  
+                  
+                    id="books"
+                  >
+                  <i class='fa fa-book fa-fw fa-fw'></i>悦读
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/movies/
+                  
+                  
+                  
+                    id="movies"
+                  >
+                  <i class='fas fa-play-circle fa-fw fa-fw'></i>电影
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              
+                <li>
+                  <a class="menuitem flat-box">
+                    <i class='fas fa-compact-disc fa-fw music'></i>音乐
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      volume='0.3'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5229739363'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                <li>
+              
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-comment-dots fa-fw fa-fw'></i>聆听
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/contact/
+                  
+                  
+                  
+                    id="contact"
+                  >
+                  <i class='fa fa-paper-plane fa-fw fa-fw'></i>留言
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/Creator-said/
+                  
+                  
+                  
+                    id="Creator-said"
+                  >
+                  <i class='fas fa-comment-dots fa-fw fa-fw'></i>话痨
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-history fa-fw fa-fw'></i>关于
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/love
+                  
+                  
+                  
+                    id="relaxlove"
+                  >
+                  <i class='fa-fw fa fa-heart fa-fw'></i>表白
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw fa-fw'></i>自述
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/home
+                  
+                  
+                  
+                    id="relaxhome"
+                  >
+                  <i class='fas fa-info-circle fa-fw fa-fw'></i>home
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  镜像
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirrors.163.com/
+                  
+                  
+                  
+                    id="http:mirrors163com"
+                  >
+                  网易
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirrors.sohu.com/ubuntu/indices/
+                  
+                  
+                  
+                    id="http:mirrorssohucomubuntuindices"
+                  >
+                  搜狐
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://mirrors.tuna.tsinghua.edu.cn/apache/
+                  
+                  
+                  
+                    id="https:mirrorstunatsinghuaeducnapache"
+                  >
+                  Apache
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  Centos
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://man.linuxde.net/download/CentOS
+                  
+                  
+                  
+                    id="http:manlinuxdenetdownloadCentOS"
+                  >
+                  国内
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.centos.org/download/
+                  
+                  
+                  
+                    id="https:wwwcentosorgdownload"
+                  >
+                  官方
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirror.lzu.edu.cn/
+                  
+                  
+                  
+                    id="http:mirrorlzueducn"
+                  >
+                  兰大
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  工具
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://encycolorpedia.cn/named
+                  
+                  
+                  
+                    id="https:encycolorpediacnnamed"
+                  >
+                  颜色码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.iconfont.cn/
+                  
+                  
+                  
+                    id="https:wwwiconfontcn"
+                  >
+                  图标库
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.sojson.com/dwz.html
+                  
+                  
+                  
+                    id="https:wwwsojsoncomdwzhtml"
+                  >
+                  短链接
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://cli.im/
+                  
+                  
+                  
+                    id="https:cliim"
+                  >
+                  二维码1.4.14
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://www.aigei.com/bgremover/
+                  
+                  
+                  
+                    id="http:wwwaigeicombgremover"
+                  >
+                  透明图
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  站点
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://a2data.github.io/
+                  
+                  
+                  
+                    id="http:a2datagithubio"
+                  >
+                  Github
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://sqlsq_admin.gitee.io/
+                  
+                  
+                  
+                    id="https:sqlsq_admingiteeio"
+                  >
+                  Gitee
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fal fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="想找些什么~" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fal fa-home fa-fw'></i>首页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fal fa-search fa-fw fa-fw'></i>发现
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://learngitbranching.js.org/?demo=&amp;locale=zh_CN
+                  
+                  
+                  
+                    id="https:learngitbranchingjsorg?demo=&amp;locale=zh_CN"
+                  >
+                  <i class='fas fa-pen-alt fa-fw'></i>Git
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-palette fa-fw'></i>娱乐
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/mofang
+                  
+                  
+                  
+                    id="relaxmofang"
+                  >
+                  魔方
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/2048
+                  
+                  
+                  
+                    id="relax2048"
+                  >
+                  2048
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>社区
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/books/
+                  
+                  
+                  
+                    id="books"
+                  >
+                  <i class='fa fa-book fa-fw fa-fw'></i>悦读
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/movies/
+                  
+                  
+                  
+                    id="movies"
+                  >
+                  <i class='fas fa-play-circle fa-fw fa-fw'></i>电影
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-comment-dots fa-fw fa-fw'></i>聆听
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/contact/
+                  
+                  
+                  
+                    id="contact"
+                  >
+                  <i class='fa fa-paper-plane fa-fw fa-fw'></i>留言
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/Creator-said/
+                  
+                  
+                  
+                    id="Creator-said"
+                  >
+                  <i class='fas fa-comment-dots fa-fw fa-fw'></i>话痨
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-history fa-fw fa-fw'></i>关于
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/love
+                  
+                  
+                  
+                    id="relaxlove"
+                  >
+                  <i class='fa-fw fa fa-heart fa-fw'></i>表白
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw fa-fw'></i>自述
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/relax/home
+                  
+                  
+                  
+                    id="relaxhome"
+                  >
+                  <i class='fas fa-info-circle fa-fw fa-fw'></i>home
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-ellipsis-v fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  镜像
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirrors.163.com/
+                  
+                  
+                  
+                    id="http:mirrors163com"
+                  >
+                  网易
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirrors.sohu.com/ubuntu/indices/
+                  
+                  
+                  
+                    id="http:mirrorssohucomubuntuindices"
+                  >
+                  搜狐
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://mirrors.tuna.tsinghua.edu.cn/apache/
+                  
+                  
+                  
+                    id="https:mirrorstunatsinghuaeducnapache"
+                  >
+                  Apache
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  Centos
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://man.linuxde.net/download/CentOS
+                  
+                  
+                  
+                    id="http:manlinuxdenetdownloadCentOS"
+                  >
+                  国内
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.centos.org/download/
+                  
+                  
+                  
+                    id="https:wwwcentosorgdownload"
+                  >
+                  官方
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://mirror.lzu.edu.cn/
+                  
+                  
+                  
+                    id="http:mirrorlzueducn"
+                  >
+                  兰大
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  工具
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://encycolorpedia.cn/named
+                  
+                  
+                  
+                    id="https:encycolorpediacnnamed"
+                  >
+                  颜色码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.iconfont.cn/
+                  
+                  
+                  
+                    id="https:wwwiconfontcn"
+                  >
+                  图标库
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://www.sojson.com/dwz.html
+                  
+                  
+                  
+                    id="https:wwwsojsoncomdwzhtml"
+                  >
+                  短链接
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://cli.im/
+                  
+                  
+                  
+                    id="https:cliim"
+                  >
+                  二维码1.4.14
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://www.aigei.com/bgremover/
+                  
+                  
+                  
+                    id="http:wwwaigeicombgremover"
+                  >
+                  透明图
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  站点
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=http://a2data.github.io/
+                  
+                  
+                  
+                    id="http:a2datagithubio"
+                  >
+                  Github
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://sqlsq_admin.gitee.io/
+                  
+                  
+                  
+                    id="https:sqlsq_admingiteeio"
+                  >
+                  Gitee
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div class="l_body">
+    <div class="l_cover">
+  
+    
+    
+        <div class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://ds.ipyingshe.net/datascience/2025/05/05/bcac99047bac5.png"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">数据科学</p>
+    
+    
+      <p class="subtitle">Welcome To A2Data</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/categories/"
+              
+              
+              id="categories">
+              <i class='fal fa-folder-open fa-fw fa-fw'></i><p>内容大纲</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fal fa-archive fa-fw fa-fw'></i><p>文章归档</p>
+            </a>
+          
+            <a href="/tags/"
+              
+              
+              id="tags">
+              <i class='fal fa-fire fa-fw fa-fw fa-fw'></i><p>热门标签</p>
+            </a>
+          
+            <a href="/contact/"
+              
+              
+              id="contact">
+              <i class='fal fa-comments fa-fw fa-fw'></i><p>畅所欲言</p>
+            </a>
+          
+            <a href="/Creator-said/"
+              
+              
+              id="Creator-said">
+              <i class='fal fa-microphone-alt fa-fw fa-fw'></i><p>随便说说</p>
+            </a>
+          
+            <a href="/friends/"
+              
+              
+              id="friends">
+              <i class='fal fa-link fa-fw fa-fw'></i><p>我的朋友</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+  
+    <div class='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+          <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">Day2.数据可视化基本图像绘制</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path"></div> 
+  <div id="pjax-comment-placeholder"></div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "half") { // 半屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "full") { // 全屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+ 
+
+        
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+    <div class='headimg-div'>
+      <a class='headimg-a'>
+        <img class='headimg' src='https://ds.ipyingshe.net/datascience/2025/05/05/81f543c3f64a9.png'/>
+      </a>
+    </div>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Day2.数据可视化基本图像绘制
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://ds.ipyingshe.net:443/datascience/2025/05/05/20250505024535864.png">
+    <p>JackFeng</p>
+  </a>
+</div>
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 12, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>2.1k words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>7 min</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Day2.数据可视化基本图像绘制" data-path="/posts/b11c450a.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+<div class="new-meta-item comments-count">
+  
+  <a href="/posts/b11c450a.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/posts/b11c450a.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <p>数据可视化，基本图像的绘制。</p>
+<a id="more"></a>
+
+
+<h1 id="数据可视化的基础语法"><a href="#数据可视化的基础语法" class="headerlink" title="数据可视化的基础语法"></a>数据可视化的基础语法</h1><p><strong>可视化</strong>主要是以图像来展示数据间的关系，</p>
+<p>常见的图形种类有</p>
+<ul>
+<li>==<strong>折线图,散点图,条形图，直方图，饼图</strong>==。</li>
+<li>此外在接下来课程中还会用到==<strong>箱线图，热力图，蜘蛛图</strong>==，表示二元变量分布和成对关系的视图。<!--学好可视化，不仅要会画图，更要梳理数据见的关系，以合适的方式将数据通过图形表达出来。--></li>
+</ul>
+<p>今天我们要来了解折线图，散点图，条形图，直方图，饼图和器特点。认识Matplotlib的图像结构，并以Matplotlib绘制折线图为例来掌握设置辅助显示层；此外，用Matplotlob设置辅助显示层，内容还增添拓展部份，平时用到的不是很多，作为了解即可。</p>
+<h2 id="常见图像"><a href="#常见图像" class="headerlink" title="常见图像"></a>常见图像</h2><h3 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h3><ul>
+<li><p>以折线的上升或下降来表示统计数量的增减变化的统计图</p>
+<p><strong>特点：能够显示数据的变化趋势，反映事物的变化情况。(变化)</strong></p>
+</li>
+</ul>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/254095fa511a0.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/254095fa511a0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="散点图（Scatter）"><a href="#散点图（Scatter）" class="headerlink" title="散点图（Scatter）"></a>散点图（Scatter）</h3><ul>
+<li><p>用两组数据构成多个坐标点，考察坐标点的分布,判断两变量之间是否存在某种关联或总结坐标点的分布模式。</p>
+<p><strong>特点：判断变量之间是否存在数量关联趋势,展示离群点(分布规律)</strong></p>
+</li>
+</ul>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/dbe0312f890ac.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/dbe0312f890ac.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="条形图"><a href="#条形图" class="headerlink" title="条形图"></a>条形图</h3><ul>
+<li><p>排列在工作表的列或行中的数据可以绘制到柱状图中。</p>
+<p><strong>特点：绘制连离散的数据,能够一眼看出各个数据的大小,比较数据之间的差别。(统计/对比)</strong></p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/3cf443222b86f.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/3cf443222b86f.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+</li>
+</ul>
+<h3 id="直方图-Histogram"><a href="#直方图-Histogram" class="headerlink" title="直方图(Histogram)"></a>直方图(Histogram)</h3><ul>
+<li><p>由一系列高度不等的纵向条纹或线段表示数据分布的情况。一般用横轴表示数据范围，纵轴表示分布情况。</p>
+<p><strong>特点：绘制连续性的数据展示一组或者多组数据的分布状况(统计)</strong></p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/cec9385d8c640.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/cec9385d8c640.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+</li>
+</ul>
+<h3 id="饼图-pie"><a href="#饼图-pie" class="headerlink" title="饼图(pie)"></a>饼图(pie)</h3><ul>
+<li><p>用于表示不同分类的占比情况，通过弧度大小来对比各种分类。</p>
+<p><strong>特点：分类数据的占比情况(占比)</strong></p>
+</li>
+</ul>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/05f654838d7db.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/05f654838d7db.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h2 id="Matplotlib画图基础"><a href="#Matplotlib画图基础" class="headerlink" title="Matplotlib画图基础"></a>Matplotlib画图基础</h2><p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/058262e3eff96.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/058262e3eff96.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><code>Matplotlib</code>，它是一个Python 2D绘图库，它可以在各种平台上以各种硬拷贝格式和交互式环境生成出具有出版品质的图形。只需几行代码即可生成绘图，直方图，条形图,散点图等。</p>
+<h3 id="Matplotlib画图的简单实现"><a href="#Matplotlib画图的简单实现" class="headerlink" title="Matplotlib画图的简单实现"></a>Matplotlib画图的简单实现</h3><hr>
+<pre><code class="python"># 导入模块
+import matplotlib.pyplot as plt
+# 在jupyter中执行的时候显示图片
+#matplotlib inline
+# 传入x和y, 通过plot画图
+plt.plot([3, 1, 7], [4, 5, 6])
+# 在执行程序的时候展示图形
+plt.show()</code></pre>
+<p><strong>传入x和y时，括号中的第一个列表是x轴上的值，第二个列表是y上的值。</strong></p>
+<p>运行结果：</p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/990cfd5747284.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/990cfd5747284.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="折线图"></p>
+<p><strong>如何应用呢？</strong></p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/88a060ede7c1d.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/88a060ede7c1d.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="对Matplotlib图像结构的认识"><a href="#对Matplotlib图像结构的认识" class="headerlink" title="对Matplotlib图像结构的认识"></a>对Matplotlib图像结构的认识</h3><p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/34213fa879892.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/34213fa879892.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>在学习Matplotlib的过程中，大家一定会遇到这样那样的问题，</p>
+<p><code>比如说</code>，</p>
+<ul>
+<li><p>背景图怎么设置？</p>
+</li>
+<li><p>坐标轴怎么设置？</p>
+</li>
+<li><p>坐标轴上的刻度值怎么设置？</p>
+</li>
+</ul>
+<p>  因此对于Matplotlib的图像结构组成我们要有一定的了解。通常情况下，我们可以将一副Matplotlib图像分成三层结构：</p>
+<ol>
+<li><p><strong>第一层是底层的容器层</strong></p>
+<p>主要包括Canvas(画板)底层、Figure（画布）用户操作第一层设置画布的大小和背景颜色、Axes（绘图区）独立的坐标系；</p>
+</li>
+<li><p><strong>第二层：辅助显示层</strong></p>
+<p>主要包括Axis（轴）、Spines（边框线）、Tick（坐标轴刻度）、Grid（网格线）、Legend（图例说明）、Title（标题）等，该层可通过set_axis_off()或set_frame_on(False)等方法设置不显示。</p>
+<p>该层的设置可使图像显示更加直观更加容易被用户理解，但又并不会对图像产生实质的影响。</p>
+</li>
+<li><p><strong>第三层：图像层</strong></p>
+<p>即通过plot、hist、contour、scatter等方法绘制的图像。</p>
+</li>
+</ol>
+<h2 id="Matplotlib绘制折线图"><a href="#Matplotlib绘制折线图" class="headerlink" title="Matplotlib绘制折线图"></a>Matplotlib绘制折线图</h2><h3 id="折线图的绘制"><a href="#折线图的绘制" class="headerlink" title="折线图的绘制"></a>折线图的绘制</h3><p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/76be1441f6b25.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/76be1441f6b25.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><code>代码解析：</code></p>
+<p>x轴数值的产生使用range函数，开始数字是1，结束时7，不包含8。</p>
+<h3 id="折线的颜色和形状设置"><a href="#折线的颜色和形状设置" class="headerlink" title="折线的颜色和形状设置"></a>折线的颜色和形状设置</h3><pre><code class="python">from matplotlib import pyplot as plt
+x = range(1,8) # x轴的位置
+y = [17, 17, 18, 15, 11, 11, 13]
+# 传入x和y, 通过plot画折线图
+plt.plot(x, y, color=&#39;red&#39;,alpha=0.5,linestyle=&#39;--&#39;,linewidth=3)
+plt.show()
+
+&#39;&#39;&#39;基础属性设置
+color=&#39;red&#39; : 折线的颜色
+alpha=0.5 : 折线的透明度(0-1)
+linestyle=&#39;--&#39; : 折线的样式
+linewidth=3 : 折线的宽度
+&#39;&#39;&#39;
+&#39;&#39;&#39;线的样式
+- 实线(solid)
+-- 短线(dashed)
+-. 短点相间线(dashdot)
+：虚点线(dotted)
+&#39;&#39;&#39;</code></pre>
+<p>运行结果：</p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/4a55ca3278d64.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/4a55ca3278d64.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="折点样式"><a href="#折点样式" class="headerlink" title="折点样式"></a>折点样式</h3><p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/8a44c8c643961.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/8a44c8c643961.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><strong>折点形状选择：</strong></p>
+<pre><code class="xml">标记maker            描述
+
+‘o’                 圆圈
+‘.’                 点
+‘D’                 菱形
+‘s’                 正方形
+‘h’                 六边形1
+‘*’                 星号
+‘H’                 六边形2
+‘d’                 小菱形
+‘_’                 水平线
+‘v’                 一角朝下的三角形
+‘8’                 八边形
+‘&lt;’                 一角朝左的三角形
+‘p’                 五边形
+‘&gt;’                 一角朝右的三角形
+‘,’                 像素
+‘^’                 一角朝上的三角形
+‘+’                 加号
+‘|‘               竖线
+‘None’,’’,’ ‘       无
+‘x’                 X</code></pre>
+<h3 id="设置图片的大小和保存"><a href="#设置图片的大小和保存" class="headerlink" title="设置图片的大小和保存"></a>设置图片的大小和保存</h3><pre><code class="python">from matplotlib import pyplot as plt
+import random
+x = range(2,20,2) # x轴的位置
+y = [random.randint(15, 30) for i in x]
+# 设置图片的大小
+&#39;&#39;&#39;
+figsize:指定figure的宽和高，单位为英寸；
+dpi参数指定绘图对象的分辨率，即每英寸多少个像素，缺省值为80 1英寸等于2.5cm,A4纸是 21*30cm的纸张
+&#39;&#39;&#39;
+# 设置画布对象
+plt.figure(figsize=(20,8),dpi=80)
+plt.plot(x,y) # 传入x和y, 通过plot画图
+# 保存(注意：要放在show的上面，plt.show()会释放figure资源，如果在显示图像之后保存图片将只能保存空图片。)
+plt.savefig(&#39;./t1.png&#39;)
+#./表示放在当前python文件的目录
+plt.show()
+# 图片的格式也可以保存为svg这种矢量图格式，这种矢量图放在网页中放大后不会有锯齿
+# plt.savefig(&#39;./t1.svg&#39;)</code></pre>
+<p><code>x轴</code>的数值，使用range(),step为2,不包括20；</p>
+<p><code>y轴</code>的数值是一个列表表达式，由随机数产生，import random之后，randint产生随机整数，范围是15-30。“for i in x”是一个循环，作用是表明y轴数值产生随机数的次数，次数由x轴上数值的个数决定。</p>
+<p>运行结果：</p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/0e272fba538a3.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/0e272fba538a3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="绘制x轴和y轴的刻度"><a href="#绘制x轴和y轴的刻度" class="headerlink" title="绘制x轴和y轴的刻度"></a>绘制x轴和y轴的刻度</h3><p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/e86cf5c8b7397.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/e86cf5c8b7397.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>在设置Y轴标签时，标签数值的取值范围range(min(y),max(y)+1)，这里min()和max()时是函数，分别取y中的最小和最大值，由于range函数不包集合右边的值，故加<code>1</code>。plt.yticks(range(min(y),max(y)+1),y_ticks_label)中，y_ticks_label表示y轴刻度产生的次数。</p>
+<h3 id="设置显示中文"><a href="#设置显示中文" class="headerlink" title="设置显示中文"></a>设置显示中文</h3><p>matplotlib只显示英文，无法显示中文，需要修改<strong>matplotlib</strong>的默认字体。通过模块<code>font_manager</code>使用中文字体可以解决。</p>
+<p>以表示两个小时内心脏每分钟跳动变化为例，x轴需要加上标题“时间”，y轴“次数”，图像标题“每分钟跳动次数”,如下图所示：</p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/928e72fbfaef4.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/928e72fbfaef4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="一图多线"><a href="#一图多线" class="headerlink" title="一图多线"></a>一图多线</h3><p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/c22bd5f846129.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/c22bd5f846129.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="拓展部分：一图多个坐标系"><a href="#拓展部分：一图多个坐标系" class="headerlink" title="拓展部分：一图多个坐标系"></a>拓展部分：一图多个坐标系</h3><pre><code class="python"># 方法add_subplot：给figure新增子图
+
+# 这里引进的科学计算库Numpy,把它看作一个[列表]即可，目的是要使用log方法画log对数函数。
+import numpy as np
+from matplotlib import pyplot as plt
+x = np.arange(1, 100) #与range（）相同
+#新建figure画布对象，三个坐标轴（子图）建立在同一个画布上
+fig=plt.figure(figsize=(20,10),dpi=80)
+
+#利用画布对象，在上面放置三个坐标系
+#新建子图1
+ax1=fig.add_subplot(2,2,1)
+ax1.plot(x, x)
+#新建子图2
+ax2=fig.add_subplot(2,2,2)
+ax2.plot(x, x ** 2) #x的二次方，如果是x**3是x的三次方
+ax2.grid(color=&#39;r&#39;, linestyle=&#39;--&#39;, linewidth=1,alpha=0.3)
+#新建子图3
+ax3=fig.add_subplot(2,2,3)
+ax3.plot(x, np.log(x))
+plt.show()</code></pre>
+<p>在这里解释一下add_subplot(2,2,1)里的参数的含义。在一个画布上放置三个图，需要排列位置。</p>
+<p>首先将一张图，分成两列，再分成两行，总共划分出四个格子，子图1按照从左到右从上到下的顺序放在第一个格子里。</p>
+<p>运行结果：</p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/cbcd8370ea5dd.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/cbcd8370ea5dd.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="拓展部分：设置坐标轴范围"><a href="#拓展部分：设置坐标轴范围" class="headerlink" title="拓展部分：设置坐标轴范围"></a>拓展部分：设置坐标轴范围</h3><p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/995f86b8b988f.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/995f86b8b988f.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/86ff8a15b6b54.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/86ff8a15b6b54.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h2 id="打卡格式"><a href="#打卡格式" class="headerlink" title="打卡格式"></a>打卡格式</h2><p><img src="https://ds.ipyingshe.net/datascience/2025/05/05/dc25a73e68f33.png" class="lazyload" data-srcset="https://ds.ipyingshe.net/datascience/2025/05/05/dc25a73e68f33.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h2 id="小作业"><a href="#小作业" class="headerlink" title="小作业"></a><strong>小作业</strong></h2><ul>
+<li><p><strong>1、</strong>说出你理解的五种常用图像的特点，你有没有地方需要用得到呢？。</p>
+</li>
+<li><p><strong>2、</strong>运用<code>Matplotlib</code>,自己编数据设计样式，绘制一幅自己的折线图。</p>
+</li>
+</ul>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+        
+  <div class="related_posts">
+    <section class='header'>
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
+    </section>
+    <section class='body'>
+      <div class="vlts-rps"><a class="item" href="/posts/6e2faa04.html" title="Anaconda利器" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/A2Data/cdn/img/p0.png" /><span class="title">Anaconda利器</span><span class="excerpt">数据可视化，环境搭建。</span></a><a class="item" href="/posts/bb9346ce.html" title="Day1.数据可视化Python语法" rel="bookmark "><img src="https://ds.ipyingshe.net/datascience/2025/05/05/7600d50cd555c.png" /><span class="title">Day1.数据可视化Python语法</span><span class="excerpt">数据可视化，基础语法。</span></a><a class="item" href="/posts/62cf8a54.html" title="Day4.数据可视化拓展图形的绘制" rel="bookmark "><img src="https://ds.ipyingshe.net/datascience/2025/05/05/0d1840e21ca68.png" /><span class="title">Day4.数据可视化拓展图形的绘制</span><span class="excerpt">数据可视化，更多拓展图形的绘制,以及如何引入本地数据集</span></a><a class="item" href="/posts/f893cfd3.html" title="Day3.常见图形的不同绘制方法" rel="bookmark "><img src="https://ds.ipyingshe.net/datascience/2025/05/05/fd3c885300a79.png" /><span class="title">Day3.常见图形的不同绘制方法</span><span class="excerpt">数据可视化，常见图形的不同绘制方式。</span></a><a class="item" href="/posts/cfcef26f.html" title="活动三步走" rel="bookmark "><img src="https://ds.ipyingshe.net/datascience/2025/05/05/e50eb621069d5.png" /><span class="title">活动三步走</span><span class="excerpt">进来看看 不吃亏，肯定有你不会的。不信你来看看</span></a></div></section></div>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>版权声明：本网站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="/">数据科学</a></p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://www.a2data.cn/posts/b11c450a.html>http://www.a2data.cn/posts/b11c450a.html</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+        <div class='donate'>
+          <div class='imgs'>
+            
+              <img src='https://gitee.com/DataITems_admin/cdn/raw/master/alipay.jpg'>
+            
+              <img src='https://gitee.com/DataITems_admin/cdn/raw/master/wechat.png'>
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2025-05-05T02:37:40+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 5, 2025</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>数据可视化</p></a></div>
+
+
+        
+      
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>2.1k words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>7 min</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.a2data.cn/posts/b11c450a.html&title=Day2.数据可视化基本图像绘制 - DataScience&summary=数据可视化，基本图像的绘制。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.a2data.cn/posts/b11c450a.html&title=Day2.数据可视化基本图像绘制 - DataScience&summary=数据可视化，基本图像的绘制。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.a2data.cn/posts/b11c450a.html&title=Day2.数据可视化基本图像绘制 - DataScience&summary=数据可视化，基本图像的绘制。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACOUlEQVR42u3aQXLCQAwEQP//08kLKFYjORC59wZlbPVyGWt1/Tx0XeDg4ODg4IvgV7he3vjFda9+V31et15wcHBwcPCN8OMAcAg4vb5aR7decHBwcHDwzfDTAFGF3Qap1gsODg4ODg5+fP27gNMNOuDg4ODg4ODz8KlgAw4ODg4ODn7fgUL1YCAdBPi6kxRwcHBwcPAvgscDcx/6/PHJRnBwcHBw8C+Ad9ddgwPvGhpxveDg4ODg4IvgaUDoNhq6GxbXBw4ODg4OvhheDS5TkPT70z8CHBwcHBz8ifB0cO/dhkwNJJTvAw4ODg4Ovgh+eqO0MZA+J21gvP0eHBwcHBx8EbwaDK6bV9ogGT9JAQcHBwcH/wfw6ot/2ijoQqYGDMDBwcHBwTfB0xf8NHj8VZA5Tm7g4ODg4OAL4WlwSRsa1QAV1wUODg4ODr4QXm0sVBv53YGC2wIMODg4ODj4QngaVLpBKG1UHB8wgIODg4ODL4ZXC5wKKungQbUucHBwcHDwJ8KrAaZb6PSBBDg4ODg4+JPg1Rf/9AAivS5uTICDg4ODgy+Cd1e1oTB9v/LGgIODg4ODL4Jf4ao2KqYHAaqDCeDg4ODg4Jvh3YDR3aDpQYXygQI4ODg4OPgCeBogpoDdg4XbT1LAwcHBwcEXwruDAtNBBxwcHBwcHLwPn9qI7vPAwcHBwcGfAK8eKHQbCd3nlRsk4ODg4ODgC+HdIJIW2n1OdUPBwcHBwcE3wZ+2wMHBwcHBF6xfKZQFH0aS1+YAAAAASUVORK5CYII=">
+          </div>
+        </div>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/posts/f893cfd3.html'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Day3.常见图形的不同绘制方法</p>
+          <p class='content'>数据可视化，常见图形的不同绘制方式。
+
+
+
+我们了解了常用的五种图形：
+
+散点图
+折线图
+柱状图
+直方图
+饼图
+
+那么如何用Matplotlib和Seaborn来画出它们。
+Matplotlib...</p>
+        </a>
+      
+      
+        <a class='next' href='/posts/bb9346ce.html'>
+          <p class='title'>Day1.数据可视化Python语法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>数据可视化，基础语法。
+
+
+
+数据可视化-Python基础语法Python简单？想学好数据分析，最好最快的方式是掌握==Python语言==。
+Python语言的强大
+
+简洁，有大量的第三方库，...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+<section class="widget grid shadow desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-map-signs fa-fw" aria-hidden="true"></i><span class='name'>导航</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="grid navigation fixed">
+      
+        <a class="flat-box" title="/categories/" href="/categories/"
+          
+          
+          id="categories">
+          
+            <i class="fas fa-book fa-fw fa-fw" aria-hidden="true"></i>
+          
+          内容大纲
+        </a>
+      
+        <a class="flat-box" title="/archives/" href="/archives/"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a>
+      
+        <a class="flat-box" title="/tags/" href="/tags/"
+          
+          
+          id="tags">
+          
+            <i class="fas fa-fire fa-fw fa-fw" aria-hidden="true"></i>
+          
+          热门标签
+        </a>
+      
+        <a class="flat-box" title="/Creator-said/" href="/Creator-said/"
+          
+          
+          id="Creator-said">
+          
+            <i class="fas fa-comment-dots fa-fw fa-fw" aria-hidden="true"></i>
+          
+          主创说
+        </a>
+      
+        <a class="flat-box" title="/contact/" href="/contact/"
+          
+          
+          id="contact">
+          
+            <i class="fas fa-comments fa-fw fa-fw" aria-hidden="true"></i>
+          
+          留言板
+        </a>
+      
+        <a class="flat-box" title="/friends/" href="/friends/"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-users fa-fw fa-fw" aria-hidden="true"></i>
+          
+          友情链接
+        </a>
+      
+        <a class="flat-box" title="/" href="/"
+          
+          
+            target="_blank"
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a>
+      
+        <a class="flat-box" title="/tools/" href="/tools/"
+          
+          
+          id="tools">
+          
+            <i class="fas fa-info-circle fa-fw fa-fw" aria-hidden="true"></i>
+          
+          软件控
+        </a>
+      
+        <a class="flat-box" title="https://travellings.now.sh/" href="https://travellings.now.sh/"
+          
+            rel="noopener external nofollow noreferrer"
+          
+          
+            target="_blank"
+          
+          id="https:travellingsnowsh">
+          
+            <i class="fa fa-binoculars fa-fw" aria-hidden="true"></i>
+          
+          开往
+        </a>
+      
+    </div>
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%9B%BE%E5%83%8F"><span class="toc-text">常见图像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%A3%E7%82%B9%E5%9B%BE%EF%BC%88Scatter%EF%BC%89"><span class="toc-text">散点图（Scatter）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E5%BD%A2%E5%9B%BE"><span class="toc-text">条形图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE-Histogram"><span class="toc-text">直方图(Histogram)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A5%BC%E5%9B%BE-pie"><span class="toc-text">饼图(pie)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib%E7%94%BB%E5%9B%BE%E5%9F%BA%E7%A1%80"><span class="toc-text">Matplotlib画图基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matplotlib%E7%94%BB%E5%9B%BE%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">Matplotlib画图的简单实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9Matplotlib%E5%9B%BE%E5%83%8F%E7%BB%93%E6%9E%84%E7%9A%84%E8%AE%A4%E8%AF%86"><span class="toc-text">对Matplotlib图像结构的认识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matplotlib%E7%BB%98%E5%88%B6%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-text">Matplotlib绘制折线图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE%E7%9A%84%E7%BB%98%E5%88%B6"><span class="toc-text">折线图的绘制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E7%9A%84%E9%A2%9C%E8%89%B2%E5%92%8C%E5%BD%A2%E7%8A%B6%E8%AE%BE%E7%BD%AE"><span class="toc-text">折线的颜色和形状设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E7%82%B9%E6%A0%B7%E5%BC%8F"><span class="toc-text">折点样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BF%9D%E5%AD%98"><span class="toc-text">设置图片的大小和保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%98%E5%88%B6x%E8%BD%B4%E5%92%8Cy%E8%BD%B4%E7%9A%84%E5%88%BB%E5%BA%A6"><span class="toc-text">绘制x轴和y轴的刻度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87"><span class="toc-text">设置显示中文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%9B%BE%E5%A4%9A%E7%BA%BF"><span class="toc-text">一图多线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E9%83%A8%E5%88%86%EF%BC%9A%E4%B8%80%E5%9B%BE%E5%A4%9A%E4%B8%AA%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="toc-text">拓展部分：一图多个坐标系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E9%83%A8%E5%88%86%EF%BC%9A%E8%AE%BE%E7%BD%AE%E5%9D%90%E6%A0%87%E8%BD%B4%E8%8C%83%E5%9B%B4"><span class="toc-text">拓展部分：设置坐标轴范围</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%A1%E6%A0%BC%E5%BC%8F"><span class="toc-text">打卡格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E4%BD%9C%E4%B8%9A"><span class="toc-text">小作业</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+      </div>
+      
+    
+    <footer class="footer clearfix">
+        <br><br>
+        
+            
+                <br>
+                <div class="social-wrapper">
+                    
+                        
+                            <a href="https://github.com/A2Data"
+                               class="social fab fa-github flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                        
+                            <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=a2data@163.com"
+                               class="social fas fa-envelope-open flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                        
+                            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=66860619"
+                               class="social fab fa-qq flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                        
+                            <a href="https://gitee.com/DataITems_admin/cdn/raw/master/baeab3a662ef96c3403f558a0bb578c.jpg"
+                               class="social fab fa-weixin flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                        
+                            <a href="https://me.csdn.net/weixin_47093227"
+                               class="social fab fa-cuttlefish flat-btn"
+                               target="_blank"
+                               rel="external nofollow noopener noreferrer">
+                                
+                            </a>
+                        
+                    
+                </div>
+                <div>
+<!--                    <span id="timeDate"></span>-->
+                    <i class="fas fa-heartbeat" style="transform:scale(1.1);color:rgba(255,0,0,.9)"></i>
+                    <span id="times"></span>
+                    <i class="fas fa-heartbeat" style="transform:scale(1.1);color:rgba(255,0,0,.9)"></i>
+                    <script>
+                        var now = new Date();
+                        function createtime() {
+                            var grt= new Date("08/18/2018 00:00:00");  //在此处修改你的建站时间，格式：月/日/年 时:分:秒
+                            now.setTime(now.getTime()+250);
+                            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+                            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+                            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+                            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+                            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+                            // document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+                            document.getElementById("times").innerHTML = "本站已运行 "+dnum+" 天 "+ hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+                        }
+                        setInterval("createtime()",250);
+                    </script>
+                </div>
+                <div class="pure">
+                    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+                    <script>
+                        var getOSAndBrowser = function () {
+                            var os = navigator.platform;
+                            var userAgent = navigator.userAgent;
+                            var info = "";
+                            var tempArray = "";
+                            if (os.indexOf("Win") > -1) {
+                                if (userAgent.indexOf("Windows NT 5.0") > -1) {
+                                    info += "Win2000"
+                                } else if (userAgent.indexOf("Windows NT 5.1") > -1) {
+                                    info += "WinXP"
+                                } else if (userAgent.indexOf("Windows NT 5.2") > -1) {
+                                    info += "Win2003"
+                                }
+                                else if (userAgent.indexOf("Windows NT 6.0") > -1) {
+                                    info += "WindowsVista"
+                                } else if (userAgent.indexOf("Windows NT 6.1") > -1 || userAgent.indexOf("Windows 7") > -1) {
+                                    info += "Win7"
+                                } else if (userAgent.indexOf("Windows NT 6.2") > -1 || userAgent.indexOf("Windows 8") > -1) {
+                                    info += "Win8"
+                                }
+                                else if (userAgent.indexOf("Windows NT 6.3") > -1 || userAgent.indexOf("Windows 8.1") > -1) {
+                                    info += "Win8.1"
+                                } else if (userAgent.indexOf("Windows NT 10.0") > -1 || userAgent.indexOf("Windows 10") > -1) {
+                                    info += "Win10"
+                                } else {
+                                    info += "Other"
+                                }
+                            } else if (os.indexOf("Mac") > -1) {
+                                info += "Mac"
+                            } else if (os.indexOf("X11") > -1) {
+                                info += "Unix"
+                            } else if (os.indexOf("Linux") > -1) {
+                                info += "Linux"
+                            } else { info += "Other" } info += "/";
+                            var isOpera = userAgent.indexOf("Opera") > -1;
+                            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera;
+                            var isEdge = userAgent.toLowerCase().indexOf("edge") > -1 && !isIE;
+                            var isIE11 = (userAgent.toLowerCase().indexOf("trident") > -1 && userAgent.indexOf("rv") > -1);
+                            if (/[Ff]irefox(\/\d+\.\d+)/.test(userAgent)) {
+                                tempArray = /([Ff]irefox)\/(\d+\.\d+)/.exec(userAgent);
+                                info += tempArray[1] + tempArray[2]
+                            } else if (isIE) {
+                                var version = "";
+                                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                                reIE.test(userAgent);
+                                var fIEVersion = parseFloat(RegExp["$1"]);
+                                if (fIEVersion == 7) {
+                                    version = "IE7"
+                                } else if (fIEVersion == 8) {
+                                    version = "IE8"
+                                } else if (fIEVersion == 9) { version = "IE9" } else if (fIEVersion == 10) { version = "IE10" } else { version = "0" } info += version
+                            } else if (isEdge) { info += "Edge" } else if (isIE11) { info += "IE11" } else if (/[Cc]hrome\/\d+/.test(userAgent)) { tempArray = /([Cc]hrome)\/(\d+)/.exec(userAgent); info += tempArray[1] + tempArray[2] } else if (/[Vv]ersion\/\d+\.\d+\.\d+(\.\d)* *[Ss]afari/.test(userAgent)) { tempArray = /[Vv]ersion\/(\d+\.\d+\.\d+)(\.\d)* *([Ss]afari)/.exec(userAgent); info += tempArray[3] + tempArray[1] } else if (/[Oo]pera.+[Vv]ersion\/\d+\.\d+/.test(userAgent)) { tempArray = /([Oo]pera).+[Vv]ersion\/(\d+)\.\d+/.exec(userAgent); info += tempArray[1] + tempArray[2] } else { info += "unknown" } return info
+                        }; document.write("欢迎来自" + returnCitySN["cname"] + "的朋友"); document.write(",您的 IP 是:" + returnCitySN["cip"]); document.write(",您使用的是:" + getOSAndBrowser());
+                    </script>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动">
+                        <span class="badge-subject">Powered</span><span class="badge-value bg-blue">Hexo</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="http://beian.miit.gov.cn" target="_blank" title="[sqlsq.cn@备案]">
+                        <span class="badge-subject">京ICP</span><span class="github-badge .bg-lightgrey">备20010978号</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://github.com/" target="_blank" title="静态网页托管于 GitHub Pages 和 Gitee Pages">
+                        <span class="badge-subject">Hosted</span><span class="badge-value bg-brightgreen">GitHub & Gitee</span></a>
+                </div>
+                <br>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://www.foreverblog.cn/blog/1579.html" target="_blank" title="[A2Data@十年之约]">
+                        <span class="badge-subject">Forever Blog</span><span class="badge-value bg-lightgrey">十年之约</span></a>
+                </div>
+
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://www.a2data.cn/" target="_blank" title="DataScience提供内容创作">
+                        <span class="badge-subject">Copyright © 2018-2021</span><span class="badge-value bg-blueviolet">A2Data</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://www.jsdelivr.com/" target="_blank" title="jsDelivr 提供 CDN 加速服务">
+                        <span class="badge-subject">CDN</span><span class="badge-value bg-orange">jsDelivr</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站点采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可">
+                        <span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-lightgrey">BY-NC-SA 4.0</span></a>
+                </div>
+                <div class="github-badge">
+                    <a style="color: #fff" rel="license" href="https://996.icu/" target="_blank" title="支持 996.ICU">
+                        <span class="badge-subject">Link</span><span class="badge-value bg-red">996.ICU</span></a>
+                </div>
+
+            
+        
+    </footer>
+
+
+<style>
+  .github-badge {
+    display:inline-block;
+    border-radius:4px;
+    text-shadow:none;
+    font-size:13px;
+    color:#fff;
+    line-height:15px;
+    background-color:#ABBAC3;
+    margin-bottom:5px;
+  }
+  .github-badge .badge-subject {
+    display:inline-block;
+    background-color:#4D4D4D;
+    padding:4px 4px 4px 6px;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+  }
+  .github-badge .badge-value {
+    display:inline-block;
+    padding:4px 6px 4px 4px;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
+  }
+  .github-badge .bg-brightgreen {
+    background-color:#4DC820 !important;
+  }
+  .github-badge .bg-orange {
+    background-color:#FFA500 !important;
+  }
+  .github-badge .bg-yellow {
+    background-color:#D8B024 !important;
+  }
+  .github-badge .bg-blueviolet {
+    background-color:#8833D7 !important;
+  }
+  .github-badge .bg-pink {
+    background-color:#F26BAE !important;
+  }
+  .github-badge .bg-red {
+    background-color:#e05d44 !important;
+  }
+  .github-badge .bg-blue {
+    background-color:#007EC6 !important;
+  }
+  .github-badge .bg-lightgrey {
+    background-color:#9F9F9F !important;
+  }
+  .github-badge .bg-grey, .github-badge .bg-gray {
+    background-color:#555 !important;
+  }
+  .github-badge .bg-lightgrey, .github-badge .bg-lightgray {
+    background-color:#9f9f9f !important;
+  }
+</style>
+
+      <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      // 背景层
+      var bgDiv = document.createElement("div");
+      $(bgDiv).addClass("bg");
+      if ($(this).attr('bg')) {
+        $(bgDiv).css('background', $(this).attr('bg'));
+      }
+      $(this).wrap(bgDiv); // 背景层
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if($(".md").find("img").not('.inline').not('a img').length+$(".article-entry").find("img").length==0)return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+      
+      
+      
+         onclick="menuCopy()"
+              
+      
+         id="menu-copy-text"
+      >
+        <i class='fas fa-copy fa-fw'></i> 复制选中内容
+      </a>
+    </li>
+  
+        
+      
+        
+          <li class='navigation'>
+            <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fas fa-arrow-left fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fas fa-arrow-right fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fas fa-redo fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' href='/'><i class='fas fa-home fa-fw'></i></a>
+          </li>
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://support.qq.com/products/176810/
+      
+      
+      
+      
+         id="https:supportqqcomproducts176810"
+              >
+        <i class='fa fa-question fa-fw'></i> 吐槽墙
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=/tools/
+      
+      
+      
+      
+         id="tools"
+              >
+        <i class='fa-fw fa fa-bars fa-fw fa-fw'></i> 软件控
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=https://gitee.com/DataITems_admin/cdn/raw/master/sys.png
+      
+      
+      
+      
+         id="https:giteecomDataITems_admincdnrawmastersyspng"
+              >
+        <i class='fa fa-fan fa-spin fa-fw'></i> 公众号
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=/about/
+      
+      
+      
+      
+         id="about"
+              >
+        <i class='fas fa-location-arrow fa-fw'></i> 如人饮水
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' href=/Creator-said/
+      
+      
+      
+      
+         id="Creator-said"
+              >
+        <i class='fa fa-globe fa-fw fa-fw'></i> 冷暖自知
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward' onclick='aplayerBackward()'><i class='fas fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle' onclick='aplayerToggle()'><i class='fas fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward' onclick='aplayerForward()'><i class='fas fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fas fa-volume-off fa-fw'></i>
+                  <i class='right fas fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey || $(window).width() <= 500) {
+        if (event.ctrlKey) return true;
+        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) return true;
+      }
+      setMenulocation();
+      setMenuCopy();
+      if (true == true) {
+        try {
+          checkAPlayer();
+          updateTitle();
+        } catch (error) {console.log(error);}
+      }
+      return false;
+    };
+    document.getElementById('rightmenu-wrapper').oncontextmenu  = function (event) {
+      event.stopPropagation();  // 阻止右键上的右键
+      return false;
+    }
+    document.querySelectorAll('img').forEach((item) => {  // IMG 放出菜单
+      item.oncontextmenu  = function (event) {
+        event.stopPropagation();
+        return true;
+      }
+    })
+    document.addEventListener("click", function (event) {
+      hideMenu();
+    });
+    function hideMenu(  ) {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function setMenulocation() {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var mouseClientX = event.clientX;
+      var mouseClientY = event.clientY;
+      var menuWidth = menuContent.offsetWidth == 0 ? 160 : menuContent.offsetWidth;
+      var menuHeight = menuContent.offsetHeight == 0 ? 340 : menuContent.offsetHeight;
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      var showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
+      var showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
+      mymenu.style.left = showLeft + "px";
+      mymenu.style.top = showTop + "px";
+      mymenu.style.display = 'block';
+    }
+    function setMenuCopy() {
+      if (window.getSelection().toString()) {
+        document.getElementById('menu-copy-text').style.display = 'block';
+      } else {
+        document.getElementById('menu-copy-text').style.display = 'none';
+      }
+    }
+    function menuCopy() {
+      document.execCommand("Copy");
+      $.message({title:'复制成功',message: window.getSelection().toString(),type:'success'});
+    }
+  </script>
+
+
+
+
+
+  
+<script src="/js/issues.js" aysc></script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            $.message({
+            title: '复制成功',
+            message: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+        });
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5229739363';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.3';
+  APlayerController.autoPlay = 'true';
+</script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+
+
+
+  
+<script src="/js/aplayer.js"></script>
+
+
+
+
+
+
+  <!--https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js-->
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "嗨,请不要吝啬你的想法！小技巧：在昵称位置输入QQ号就可以自动补全邮箱哦~";
+
+    let path = $.trim($('#pjax-comment-path').text());
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "i1I90mFU8urYjNXgiqPT05Jt-gzGzoHsz",
+      appKey: "GXgwCzMM0g2CnM8x0WCM7fPQ",
+      pageSize: '5',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  function newcomment() {
+
+    function queryLeanCloud(k) {
+      let root = this;
+      let len = arguments.length;
+      if (len == 1) {
+        let notExist = new AV.Query("Comment");
+        notExist.doesNotExist('rid');
+        let isEmpty = new AV.Query("Comment");
+        isEmpty.equalTo('rid', '');
+        let q = AV.Query.or(notExist, isEmpty);
+        if (k === '*') q.exists('url');
+        else q.equalTo('url', decodeURI(k));
+        q.addDescending('createdAt');
+        q.addDescending('insertedAt');
+        return q;
+      } else {
+        let ids = JSON.stringify(arguments[1]).replace(/(\[|\])/g, '');
+        let cql = `select * from ${root['config']['clazzName']} where rid in (${ids}) order by -createdAt,-createdAt`;
+        return AV.Query.doCloudQuery(cql)
+      }
+    }
+    var valine = new Valine({
+      el: '#valine_container_ba（因为主题已经有valine的这些参数了，这里随意填都行）',
+      app_id: 'i1I90mFU8urYjNXgiqPT05Jt-gzGzoHsz',
+      app_key: 'GXgwCzMM0g2CnM8x0WCM7fPQ',
+      placeholder: '',
+      serverURLs: 'https://i1i90mfu.lc-cn-n1-shared.com'
+    });
+
+    //判断博主，heson改为自己的昵称
+    function bozhu(e){
+      if (e == "Jack"){
+        nick = e + '[博主]'
+        return nick;
+      } else {
+        return e
+      }
+    }
+
+    //判断网址
+    function wangzhi(e){
+      http = e.slice(0,4)
+      https = e.slice(0,5)
+      if (http == "http" || https == "https" ){
+        return e
+      } else if (e == "" || e == null || e == undefined){
+        return e
+      } else {
+        e = 'http://'+ e
+        return e
+      }
+    }
+
+    //查询评论
+    valine.Q('*').limit(7).find().then(function (comments) {
+      var hotComments = $("#hot-comments");
+      for (var i = 0; i < comments.length; i++) {
+        if (i === 0) {
+          // console.log(comments[0]);
+          console.log("\n %c DataScience %c https://www.a2data.cn \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;"),
+          window.customElements && !window.customElements.get("meting-js") && (window.MetingJSElement = MetingJSElement,
+                  window.customElements.define("meting-js", MetingJSElement));
+
+        }
+        var nick = bozhu(comments[i]._serverData.nick);
+        var content = comments[i]._serverData.comment;
+        // var newcontent = content.substring(0, 50).replace(/<[^>]+>/g,"");
+        var newcontent = content.replace(/<[^>]+>/g,"").replace(/:.*?:/g,"[表情]").substring(0,50);
+        var url = comments[i]._serverData.url;
+        var link = wangzhi(comments[i]._serverData.link);
+        var updatedAt = timeago(comments[i].updatedAt);
+        var commentId = '#' + comments[i].id;
+        hotComments.append('<div class="card-comment-item"><div class="item-header-text"><a href="'+ link +'" target="_blank" rel="nofollow noopener noreferrer" class="newcomment" >' + nick + '</a>&nbsp;发表于' + updatedAt + '</div><div class="item-text"><a href="' + url + commentId +'"  rel="nofollow" style="color:#717171" class="comments-detail" >' + newcontent + '</a></div></div>');
+      }
+    });
+  };
+
+  $(function () {
+    pjax_valine();
+    newcomment();
+  });
+</script>
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="/js/search.js"></script>
+
+  
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+(function ($) {
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+})(jQuery);
+
+</script>
+
+
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'Fsrd5NtVW8ovmaynVJ18xHO6-gzGzoHsz',
+    app_key: 'QYc2X76ulK8THVLHwpJfvsrG',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://www.a2data.cn' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://www.a2data.cn' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://www.a2data.cn' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+<!-- more -->
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = ["/Creator-said/"];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+            newcomment();
+          }
+        
+        
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+
+      <!--聊天-->
+
+      <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="9e16adc4-63cc-4958-bf99-26d19bf0ede8";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+      <!--    title 变化-->
+      <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+          document.hidden?(document.title="ヽ(●-`Д´-)ノ嗨说你呢，别分心",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+      </script>
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
